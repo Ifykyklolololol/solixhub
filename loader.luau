@@ -68,6 +68,7 @@ local GameList = {
 	["66654135"]   = { id = "1bc67a62ae73efe4babe9f2b6b7e4646", keyless = true },  -- Murder Mystery 2
 	["7395930870"]  = { id = "d3191d52e71790d40a4d169f5becd325", keyless = true },  -- Sell Lemons
 	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false } -- Shindo Life
+    ["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true } -- Sheriff VS Murderer DUELS
 }
 
 local Config = {
