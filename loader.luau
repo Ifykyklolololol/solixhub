@@ -937,7 +937,7 @@ local Library do
 	end
 
 	if IsMobile then
-		Items["Button1"] = CreateButton("Get Key (Linkvertise)", UDim2New(0.5, 0, 0, 185))
+		Items["Button1"] = CreateButton("Get Key (Workink)", UDim2New(0.5, 0, 0, 185))
 		Items["Button2"] = CreateButton("Get Key (Rinku)", UDim2New(0.5, 0, 0, 240))
 		Items["Button3"] = CreateButton("Join Discord", UDim2New(0.5, 0, 0, 295))
 		Items["Button4"] = CreateButton("Buy Standard Key", UDim2New(0.5, 0, 0, 350))
