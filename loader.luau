@@ -75,8 +75,8 @@ local Config = {
 	File = "solixhub/savedkey.txt",
 	Title = "Solix Hub Free 15+ Games",
 	Description = "Lifetime key access is available for a one time payment of $15 via solixhub.com",
-	Linkvertise = "https://ads.luarmor.net/get_key?for=Solix_Hub_Linkvertise-OWlLHDMCHADk",
-	Rinku = "https://ads.luarmor.net/get_key?for=Solix_Hub_Rinku-pqJCGTqnTsng",
+	Linkvertise = "https://rekonise.com/workink-al8vg",
+	Rinku = "https://rekonise.com/rinku-z0di3",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/",
 }
