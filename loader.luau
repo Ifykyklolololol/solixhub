@@ -1,13 +1,12 @@
 repeat wait() until game:IsLoaded()
 
 if LPH_OBFUSCATED == nil then
-	LPH_NO_VIRTUALIZE = function(...) return (...) end 
-	LPH_ENCSTR = function(...) return (...) end 
-	LRM_SANITIZE = function(...) return ... end 
+	LPH_NO_VIRTUALIZE = function(...) return (...) end
+	LPH_ENCSTR = function(...) return (...) end
+	LRM_SANITIZE = function(...) return ... end
 end
 
 local cloneref = cloneref or function(o) return o end
-local CoreGui = cloneref(game:GetService("CoreGui"))
 local TweenService = cloneref(game:GetService("TweenService"))
 local UserInputService = cloneref(game:GetService("UserInputService"))
 local Players = cloneref(game:GetService("Players"))
@@ -18,17 +17,10 @@ local StarterGui = cloneref(game:GetService("StarterGui"))
 local Workspace = cloneref(game:GetService("Workspace"))
 
 local LocalPlayer = cloneref(Players.LocalPlayer)
-local Mouse = cloneref(LocalPlayer:GetMouse())
 
-if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled then
-	IsMobile = true
-elseif not UserInputService.TouchEnabled and UserInputService.KeyboardEnabled and UserInputService.MouseEnabled then
-	IsMobile = false
-elseif UserInputService.TouchEnabled and UserInputService.KeyboardEnabled and UserInputService.MouseEnabled then 
-	IsMobile = false
-end 
+local IsMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled
 
-if (identifyexecutor() == "Wave") then
+if identifyexecutor and identifyexecutor() == "Wave" then
 	getgenv().gethui = function()
 		return game:GetService("CoreGui")
 	end
@@ -57,47 +49,46 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
-	["9584852943"]  = { id = "61e0f394c005902cda5643069ac59226", keyless = false },  -- +1 Speed Keyboard Escape
-	["7326934954"] = { id = "00e140acb477c5ecde501c1d448df6f9", keyless = true },  -- 99 Nights in the Forest
-	["10148749921"]  = { id = "0d120852a6e2eb65c691e5ce2c628429", keyless = false },  -- Animal Hospital
-	["4658598196"] = { id = "d383a1d5c0a779bbfd0a2b74437923d5", keyless = true },  -- Attack on Titan Revolution
-	["5130394318"] = { id = "3e7a75a970118d0f0cf629369524dc7d", keyless = false }, -- Bizarre Lineage
-	["994732206"]  = { id = "e2718ddebf562c5c4080dfce26b09398", keyless = false }, -- Blox Fruits
-	["10200395747"] = { id = "535322ccaa7a6ba59febea91b085c89c", keyless = true }, -- Grow a Garden 2
-	["3808223175"] = { id = "4fe2dfc202115670b1813277df916ab2", keyless = false }, -- Jujutsu Infinite
-	["66654135"]   = { id = "1bc67a62ae73efe4babe9f2b6b7e4646", keyless = true },  -- Murder Mystery 2
-	["7395930870"]  = { id = "d3191d52e71790d40a4d169f5becd325", keyless = true },  -- Sell Lemons
-	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
-    ["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
-    ["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true } -- Dig & Clean
+	["9584852943"] = { id = "61e0f394c005902cda5643069ac59226", keyless = false },
+	["7326934954"] = { id = "00e140acb477c5ecde501c1d448df6f9", keyless = true },
+	["10148749921"] = { id = "0d120852a6e2eb65c691e5ce2c628429", keyless = false },
+	["4658598196"] = { id = "d383a1d5c0a779bbfd0a2b74437923d5", keyless = true },
+	["5130394318"] = { id = "3e7a75a970118d0f0cf629369524dc7d", keyless = false },
+	["994732206"] = { id = "e2718ddebf562c5c4080dfce26b09398", keyless = false },
+	["10200395747"] = { id = "535322ccaa7a6ba59febea91b085c89c", keyless = true },
+	["3808223175"] = { id = "4fe2dfc202115670b1813277df916ab2", keyless = false },
+	["66654135"] = { id = "1bc67a62ae73efe4babe9f2b6b7e4646", keyless = true },
+	["7395930870"] = { id = "d3191d52e71790d40a4d169f5becd325", keyless = true },
+	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false },
+	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true },
+	["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true },
 }
 
 local Config = {
 	File = "solixhub/savedkey.txt",
-	Title = "Solix Hub Free 15+ Games",
-	Description = "Lifetime key access is available for a one time payment of $15 via solixhub.com",
-	Linkvertise = "https://rekonise.com/workink-al8vg",
-	Rinku = "https://rekonise.com/rinku-z0di3",
+	Workink = "https://rekonise.com/workink-al8vg",
 	Discord = "https://discord.gg/solixhub",
-	Shop = "https://solixhub.com/",
+	Shop = "https://solixhub.com/free",
 }
 
 local ErrorMessages = {
-	KEY_EXPIRED = "Your key has expired. Please renew it to continue.",
-	KEY_BANNED = "This key has been blacklisted. Contact support for assistance.",
-	KEY_INCORRECT = "The provided key is incorrect or no longer valid.",
-	KEY_INVALID = "Invalid key format. Please check your key and try again.",
-	SCRIPT_ID_INCORRECT = "The provided script ID does not exist or has been removed.",
-	SCRIPT_ID_INVALID = "This script has been deleted by its owner.",
-	SECURITY_ERROR = "Security validation failed (Cloudflare check). Please retry.",
-	TIME_ERROR = "Invalid client time detected. Please sync your system clock.",
-	UNKNOWN_ERROR = "An unknown error occurred. Please contact support."
+	KEY_EXPIRED = "Your key ran out. Buy a new one for $1.99",
+	KEY_BANNED = "This key is banned. Join Discord for help.",
+	KEY_HWID_LOCKED = "Key used on another PC. Reset HWID in Discord.",
+	KEY_INCORRECT = "Wrong key. Check it and try again.",
+	KEY_INVALID = "That doesnt look like a key.",
+	SCRIPT_ID_INCORRECT = "Script not found.",
+	SCRIPT_ID_INVALID = "Script deleted.",
+	INVALID_EXECUTOR = "Your executor isnt supported.",
+	SECURITY_ERROR = "Something went wrong. Try again.",
+	TIME_ERROR = "Fix your PC clock and try again.",
+	UNKNOWN_ERROR = "Something broke. Join Discord for help.",
 }
 
 local GameConfig = GameList[GameId]
 
 if not GameConfig then
-	StarterGui:SetCore("SendNotification",{
+	StarterGui:SetCore("SendNotification", {
 		Title = "Solix Hub",
 		Text = "This game is not supported.",
 		Icon = "rbxassetid://137698471325689",
@@ -108,11 +99,7 @@ end
 local ScriptId = GameConfig.id
 local IsKeyless = GameConfig.keyless
 
-if hookfunction and hookmetamethod then
-	LowUnc = false
-else
-	LowUnc = true
-end
+LowUnc = not (hookfunction and hookmetamethod)
 
 local function DeleteFile(Input)
 	if isfile(Input) then
@@ -130,1095 +117,955 @@ if IsKeyless then
 	return
 end
 
-local Library do
+do
 	local wait = task.wait
 	local spawn = task.spawn
 	local delay = task.delay
 
-	local LocalPlayer = Players.LocalPlayer
-	local Mouse = LocalPlayer:GetMouse()
-
 	local FromRGB = Color3.fromRGB
-	local FromHSV = Color3.fromHSV
-	local FromHex = Color3.fromHex
-
-	local RGBSequence = ColorSequence.new
-	local RGBSequenceKeypoint = ColorSequenceKeypoint.new
-	local NumSequence = NumberSequence.new
-	local NumSequenceKeypoint = NumberSequenceKeypoint.new
-
 	local UDim2New = UDim2.new
 	local UDimNew = UDim.new
-	local UDim2FromOffset = UDim2.fromOffset
 	local Vector2New = Vector2.new
-	local Vector3New = Vector3.new
-
 	local MathClamp = math.clamp
 	local MathFloor = math.floor
-	local MathAbs = math.abs
-	local MathSin = math.sin
-
+	local MathMax = math.max
+	local MathMin = math.min
 	local TableInsert = table.insert
-	local TableFind = table.find
-	local TableRemove = table.remove
-	local TableConcat = table.concat
-	local TableClone = table.clone
-	local TableUnpack = table.unpack
-
 	local StringFormat = string.format
-	local StringFind = string.find
-	local StringGSub = string.gsub
-	local StringLower = string.lower
-	local StringLen = string.len
-
 	local InstanceNew = Instance.new
 
-	local RectNew = Rect.new
+	local Theme = {
+		Background = FromRGB(14, 13, 18),
+		Inline = FromRGB(22, 21, 28),
+		Border = FromRGB(42, 40, 52),
+		Outline = FromRGB(36, 38, 45),
+		Shadow = FromRGB(8, 6, 12),
+		Text = FromRGB(242, 240, 248),
+		Inactive = FromRGB(148, 144, 162),
+		Accent = FromRGB(215, 40, 114),
+		Element = FromRGB(32, 30, 40),
+		Gradient = FromRGB(255, 140, 185),
+	}
+
+	local FontFace do
+		local ok, face = pcall(function()
+			return Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+		end)
+		FontFace = (ok and face) or Font.fromEnum(Enum.Font.GothamBold)
+	end
 
 	local GetUI = gethui or function()
-		local Success, Result = pcall(function()
+		local ok, result = pcall(function()
 			return game:GetService("CoreGui")
 		end)
-		return Success and Result or nil
+		return ok and result or nil
 	end
 
 	local function SafeGetUI()
-		local Success, Result = pcall(GetUI)
-
-		if Success and Result then
-			return Result
+		local ok, result = pcall(GetUI)
+		if ok and result then
+			return result
 		end
-
 		return game:GetService("CoreGui")
 	end
 
-	Library = {
-		Theme = {
-			["Background"] = FromRGB(15, 12, 16),
-			["Inline"] = FromRGB(22, 20, 24),
-			["Border"] = FromRGB(41, 37, 45),
-			["Text"] = FromRGB(255, 255, 255),
-			["Inactive Text"] = FromRGB(185, 185, 185),
-			["Accent"] = FromRGB(232, 186, 248),
-			["Element"] = FromRGB(36, 32, 39),
-		},
-
-		Tween = {
-			Time = 0.3,
-			Style = Enum.EasingStyle.Quad,
-			Direction = Enum.EasingDirection.Out
-		},
-
-		Connections = { },
-		Threads = { },
-		ThemeMap = { },
-		ThemeItems = { },
-
-		Holder = nil,
-		NotifHolder = nil,
-		Font = nil
-	}
-
-	Library.__index = Library
-
-	local Tween = { } do
-		Tween.__index = Tween
-
-		Tween.Create = function(self, Item, Info, Goal, RawItem)
-			Item = RawItem and Item or Item.Instance
-			Info = Info or TweenInfo.new(Library.Tween.Time, Library.Tween.Style, Library.Tween.Direction)
-
-			local NewTween = {
-				Tween = TweenService:Create(Item, Info, Goal),
-				Info = Info,
-				Goal = Goal,
-				Item = Item
-			}
-
-			NewTween.Tween:Play()
-			setmetatable(NewTween, Tween)
-
-			return NewTween
-		end
-
-		Tween.Get = function(self)
-			if not self.Tween then
-				return
-			end
-			return self.Tween, self.Info, self.Goal
-		end
-
-		Tween.Pause = function(self)
-			if self.Tween then
-				self.Tween:Pause()
+	local function Create(class, props)
+		local inst = InstanceNew(class)
+		for k, v in props do
+			if k ~= "Parent" then
+				pcall(function()
+					inst[k] = v
+				end)
 			end
 		end
-
-		Tween.Play = function(self)
-			if self.Tween then
-				self.Tween:Play()
-			end
+		if props.Parent then
+			inst.Parent = props.Parent
 		end
-
-		Tween.Clean = function(self)
-			if self.Tween then
-				Tween:Pause()
-			end
-			self = nil
-		end
+		return inst
 	end
 
-	local Instances = { } do
-		Instances.__index = Instances
-
-		Instances.Create = function(self, Class, Properties)
-			local Success, Result = pcall(function()
-				local NewItem = {
-					Instance = InstanceNew(Class),
-					Properties = Properties,
-					Class = Class
-				}
-
-				setmetatable(NewItem, Instances)
-
-				for Property, Value in NewItem.Properties do
-					pcall(function()
-						NewItem.Instance[Property] = Value
-					end)
-				end
-
-				return NewItem
-			end)
-
-			if Success and Result then
-				return Result
-			end
-
-			return {
-				Instance = nil,
-				Properties = Properties or {},
-				Class = Class,
-				_Protected = true
-			}
-		end
-
-		Instances.AddToTheme = function(self, Properties)
-			if not self.Instance then
-				return
-			end
-
-			Library:AddToTheme(self, Properties)
-
-			return self
-		end
-
-		Instances.Connect = function(self, Event, Callback)
-			if not self.Instance or not self.Instance[Event] then
-				return
-			end
-
-			return Library:Connect(self.Instance[Event], Callback)
-		end
-
-		Instances.Tween = function(self, Info, Goal)
-			if not self.Instance then
-				return
-			end
-
-			return Tween:Create(self, Info, Goal)
-		end
-
-		Instances.Clean = function(self)
-			if self.Instance then
-				self.Instance:Destroy()
-			end
-
-			self = nil
-		end
-
-		Instances.MakeDraggable = function(self)
-			if not self.Instance then
-				return
-			end
-
-			local Gui = self.Instance
-			local Dragging = false
-			local DragStart
-			local StartPosition
-			local Changed
-
-			self:Connect("InputBegan", function(Input)
-				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-					Dragging = true
-					DragStart = Input.Position
-					StartPosition = Gui.Position
-
-					if Changed then
-						return
-					end
-
-					Changed = Input.Changed:Connect(function()
-						if Input.UserInputState == Enum.UserInputState.End then
-							Dragging = false
-							if Changed then
-								Changed:Disconnect()
-								Changed = nil
-							end
-						end
-					end)
-				end
-			end)
-
-			UserInputService.InputChanged:Connect(function(Input)
-				if (Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch) and Dragging then
-
-					local Scale = UIScale and UIScale.Scale or 1
-					local DragDelta = (Input.Position - DragStart) / Scale
-
-					self:Tween(TweenInfo.new(0.16, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
-						Position = UDim2New(
-							StartPosition.X.Scale,
-							StartPosition.X.Offset + DragDelta.X,
-							StartPosition.Y.Scale,
-							StartPosition.Y.Offset + DragDelta.Y
-						)
-					})
-				end
-			end)
-
-			return Dragging
-		end
+	local function Corner(parent, radius)
+		return Create("UICorner", {
+			Parent = parent,
+			CornerRadius = UDimNew(0, radius or 5),
+		})
 	end
 
-	Library.Holder = Instances:Create("ScreenGui", {
-		Parent = SafeGetUI(),
-		Name = "\0",
-		ZIndexBehavior = Enum.ZIndexBehavior.Global,
-		DisplayOrder = 2,
-		ResetOnSpawn = false
-	})
-
-	wait()
-
-	Library.NotifHolder = Instances:Create("Frame", {
-		Parent = Library.Holder.Instance,
-		Name = "\0",
-		Size = UDim2New(0, 0, 1, 0),
-		Position = UDim2New(1, 0, 0, 0),
-		AnchorPoint = Vector2New(1, 0),
-		BackgroundColor3 = FromRGB(0, 0, 0),
-		BackgroundTransparency = 1,
-		BorderSizePixel = 0,
-		AutomaticSize = Enum.AutomaticSize.X
-	})
-
-	Library.NotifLayoutOrder = 0
-
-	Instances:Create("UIListLayout", {
-		Parent = Library.NotifHolder.Instance,
-		Name = "\0",
-		SortOrder = Enum.SortOrder.LayoutOrder,
-		HorizontalAlignment = Enum.HorizontalAlignment.Right,
-		Padding = UDimNew(0, 20)
-	})
-
-	Instances:Create("UIPadding", {
-		Parent = Library.NotifHolder.Instance,
-		Name = "\0",
-		PaddingLeft = UDimNew(0, 12),
-		PaddingRight = UDimNew(0, 12),
-		PaddingTop = UDimNew(0, 12),
-		PaddingBottom = UDimNew(0, 12)
-	})
-
-	Library.Thread = function(self, Function)
-		local NewThread = coroutine.create(Function)
-
-		coroutine.wrap(function()
-			coroutine.resume(NewThread)
-		end)()
-
-		TableInsert(self.Threads, NewThread)
-
-		return NewThread
+	local function Stroke(parent, color, transparency)
+		return Create("UIStroke", {
+			Parent = parent,
+			Color = color or Theme.Border,
+			Thickness = 1,
+			Transparency = transparency or 0,
+			ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
+		})
 	end
 
-	Library.Connect = function(self, Event, Callback)
-		local NewConnection = {
-			Event = Event,
-			Callback = Callback,
-			Name = StringFormat("conn_%s", HttpService:GenerateGUID(false)),
-			Connection = nil
-		}
-
-		Library.Thread(self, function()
-			NewConnection.Connection = Event:Connect(Callback)
-		end)
-
-		TableInsert(self.Connections, NewConnection)
-		return NewConnection
-	end
-
-	Library.AddToTheme = function(self, Item, Properties)
-		Item = Item.Instance or Item
-
-		local ThemeData = {
-			Item = Item,
-			Properties = Properties,
-		}
-
-		for Property, Value in ThemeData.Properties do
-			if type(Value) == "string" then
-				Item[Property] = self.Theme[Value] or Value
-			elseif type(Value) == "function" then
-				Item[Property] = Value()
-			end
-		end
-
-		TableInsert(self.ThemeItems, ThemeData)
-
-		self.ThemeMap[Item] = ThemeData
+	local function Tween(inst, info, goal)
+		local tw = TweenService:Create(inst, info or TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), goal)
+		tw:Play()
+		return tw
 	end
 
 	local function ToTime(a)
-		if not a then
-			return "No Key"
-		elseif a < 0 then
+		if not a or a <= 0 then
 			return "Lifetime"
 		end
 
-		local days = MathFloor(a / 86400)
-		local hours = MathFloor((a % 86400) / 3600)
-		local minutes = MathFloor((a % 3600) / 60)
-		local seconds = a % 60
+		local left = a - os.time()
+		if left < 0 then
+			return "Expired"
+		end
+
+		local days = MathFloor(left / 86400)
+		local hours = MathFloor((left % 86400) / 3600)
+		local minutes = MathFloor((left % 3600) / 60)
+		local seconds = left % 60
 
 		if days > 0 then
-			return StringFormat("%dd %dh %dm %ds", days, hours, minutes, seconds)
+			return StringFormat("%dd %dh %dm", days, hours, minutes)
 		elseif hours > 0 then
 			return StringFormat("%dh %dm %ds", hours, minutes, seconds)
 		elseif minutes > 0 then
 			return StringFormat("%dm %ds", minutes, seconds)
-		else
-			return StringFormat("%ds", seconds)
 		end
+		return StringFormat("%ds", seconds)
 	end
 
-	local function GetTextSize(Text, Width)
-		local Success, Result = pcall(function()
-			return TextService:GetTextSize(Text, 14, Font.new("GothamBold"), Vector2New(Width, 10000))
-		end)
+	local Holder = Create("ScreenGui", {
+		Parent = SafeGetUI(),
+		Name = "\0",
+		ZIndexBehavior = Enum.ZIndexBehavior.Global,
+		DisplayOrder = 2,
+		ResetOnSpawn = false,
+	})
 
-		if not Success or not Result then
-			Result = TextService:GetTextSize(Text, 14, Enum.Font.SourceSans, Vector2New(Width, 10000))
-		end
+	local NotifHolder = Create("Frame", {
+		Parent = Holder,
+		Name = "\0",
+		Size = UDim2New(0, 0, 1, 0),
+		Position = UDim2New(1, 0, 0, 0),
+		AnchorPoint = Vector2New(1, 0),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		AutomaticSize = Enum.AutomaticSize.X,
+	})
 
-		return Result
-	end
+	Create("UIListLayout", {
+		Parent = NotifHolder,
+		SortOrder = Enum.SortOrder.LayoutOrder,
+		HorizontalAlignment = Enum.HorizontalAlignment.Right,
+		Padding = UDimNew(0, 12),
+	})
 
-	Library.Notification = function(self, Data)
+	Create("UIPadding", {
+		Parent = NotifHolder,
+		PaddingLeft = UDimNew(0, 12),
+		PaddingRight = UDimNew(0, 12),
+		PaddingTop = UDimNew(0, 12),
+		PaddingBottom = UDimNew(0, 12),
+	})
+
+	local NotifLayoutOrder = 0
+
+	local function Notify(data)
 		wait()
-		Library.NotifLayoutOrder = (Library.NotifLayoutOrder or 0) + 1
+		NotifLayoutOrder += 1
 
-		local TitleText = Data.Title or Data.Name or ""
-		local DescText = Data.Description or ""
-		local Duration = Data.Duration or 5
+		local title = data.Title or "Solix Hub"
+		local desc = data.Description or ""
+		local duration = data.Duration or 5
+		local accent = data.Color or Theme.Accent
 
-		local PaddingH = 6
-		local PaddingV = 5
-		local Gap = 5
-		local BarGap = 4
-		local BarH = 3
-		local MaxWidth = 330
+		local pad_h, pad_v, gap, bar_gap, bar_h = 10, 8, 4, 6, 3
+		local accent_w, accent_gap = 3, 8
+		local max_w, min_w = 300, 160
+		local title_size, desc_size = 14, 12
 
-		local function GetTextSize(Text, FontSize, Width)
-			local Font = Font.new("GothamBold")
-
-			if typeof(Font) ~= "EnumItem" or Font.EnumType ~= Enum.Font then
-				Font = Enum.Font.Gotham
-			end
-
-			if Width <= 0 then
-				Width = 10000
-			end
-
-			return TextService:GetTextSize(Text, FontSize, Font, Vector2.new(Width, 10000))
+		local function text_size(text, font_size, width)
+			return TextService:GetTextSize(text, font_size, Enum.Font.Gotham, Vector2New(width > 0 and width or 10000, 10000))
 		end
 
-		local TitleSize = GetTextSize(TitleText, 14, MaxWidth)
-		local DescAvailableWidth = MaxWidth - PaddingH * 2
-		local DescSize = DescText ~= "" and GetTextSize(DescText, 12, DescAvailableWidth) or Vector2.new(DescAvailableWidth, 28)
+		local text_w = max_w - pad_h * 2 - accent_w - accent_gap
+		local title_sz = text_size(title, title_size, text_w)
+		local desc_sz = desc ~= "" and text_size(desc, desc_size, text_w) or Vector2New(0, 0)
+		local title_h = MathMax(MathFloor(title_sz.Y + 0.5), title_size + 2)
+		local desc_h = desc ~= "" and MathMax(MathFloor(desc_sz.Y + 0.5), desc_size + 2) or 0
+		local has_desc = desc_h > 0
 
-		local TitleH = math.max(math.ceil(math.max(TitleSize.Y, 1)), 15)
-		local DescH = math.max(math.ceil(math.max(DescSize.Y, 1)), 14)
+		local content_w = MathMin(
+			MathMax(MathFloor(title_sz.X + 0.5), MathFloor(desc_sz.X + 0.5), min_w - pad_h * 2 - accent_w - accent_gap)
+				+ pad_h * 2 + accent_w + accent_gap,
+			max_w
+		)
+		local body_h = title_h + (has_desc and (gap + desc_h) or 0)
+		local size_y = pad_v * 2 + body_h + bar_gap + bar_h
 
-		if DescH < 28 then DescH = 28 end
+		local fade_info = TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+		local bar_info = TweenInfo.new(duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
 
-		local ContentWidth = math.max(math.ceil(math.max(TitleSize.X, 1)), math.ceil(math.max(DescSize.X, 1)), 100)
-		ContentWidth = math.min(math.max(ContentWidth + PaddingH * 2, 100), MaxWidth)
+		local notif = Create("Frame", {
+			Parent = NotifHolder,
+			BackgroundColor3 = Theme.Inline,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			ClipsDescendants = true,
+			LayoutOrder = NotifLayoutOrder,
+			Size = UDim2New(0, 0, 0, size_y),
+			ZIndex = 50,
+		})
+		Corner(notif, 5)
+		local notif_stroke = Stroke(notif, Theme.Border, 0.45)
+		notif_stroke.Transparency = 1
 
-		local SizeY = PaddingV + TitleH + Gap + DescH + BarGap + BarH + PaddingV
+		Create("UIPadding", {
+			Parent = notif,
+			PaddingLeft = UDimNew(0, pad_h),
+			PaddingRight = UDimNew(0, pad_h),
+			PaddingTop = UDimNew(0, pad_v),
+			PaddingBottom = UDimNew(0, pad_v),
+		})
 
-		local Items = {} do
-			Items["Notification"] = Instances:Create("Frame", {
-				Parent = Library.NotifHolder.Instance,
-				Name = "\0",
-				BackgroundColor3 = Library.Theme["Background"],
+		Create("UIListLayout", {
+			Parent = notif,
+			Padding = UDimNew(0, bar_gap),
+			SortOrder = Enum.SortOrder.LayoutOrder,
+			FillDirection = Enum.FillDirection.Vertical,
+		})
+
+		local body = Create("Frame", {
+			Parent = notif,
+			Size = UDim2New(1, 0, 0, body_h),
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			LayoutOrder = 1,
+			ZIndex = 51,
+		})
+
+		Create("UIListLayout", {
+			Parent = body,
+			Padding = UDimNew(0, accent_gap),
+			SortOrder = Enum.SortOrder.LayoutOrder,
+			FillDirection = Enum.FillDirection.Horizontal,
+		})
+
+		local accent_bar = Create("Frame", {
+			Parent = body,
+			Size = UDim2New(0, accent_w, 1, 0),
+			BackgroundColor3 = accent,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			LayoutOrder = 1,
+			ZIndex = 51,
+		})
+		Corner(accent_bar, 2)
+
+		local content = Create("Frame", {
+			Parent = body,
+			Size = UDim2New(1, -(accent_w + accent_gap), 0, body_h),
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			LayoutOrder = 2,
+			ZIndex = 51,
+		})
+
+		Create("UIListLayout", {
+			Parent = content,
+			Padding = UDimNew(0, gap),
+			SortOrder = Enum.SortOrder.LayoutOrder,
+			FillDirection = Enum.FillDirection.Vertical,
+		})
+
+		local title_lbl = Create("TextLabel", {
+			Parent = content,
+			Size = UDim2New(1, 0, 0, title_h),
+			BackgroundTransparency = 1,
+			Text = title,
+			TextColor3 = Theme.Text,
+			TextSize = title_size,
+			FontFace = FontFace,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			TextWrapped = true,
+			TextTransparency = 1,
+			LayoutOrder = 1,
+			ZIndex = 51,
+		})
+
+		local desc_lbl
+		if has_desc then
+			desc_lbl = Create("TextLabel", {
+				Parent = content,
+				Size = UDim2New(1, 0, 0, desc_h),
 				BackgroundTransparency = 1,
-				BorderColor3 = FromRGB(0, 0, 0),
-				BorderSizePixel = 0,
-				LayoutOrder = Library.NotifLayoutOrder,
-				Size = UDim2New(0, ContentWidth, 0, SizeY)
-			}):AddToTheme({BackgroundColor3 = 'Background'})
-
-			Instances:Create("UICorner", {
-				Parent = Items["Notification"].Instance,
-				Name = "\0",
-				CornerRadius = UDimNew(0, 5)
-			})
-
-			Instances:Create("UIPadding", {
-				Parent = Items["Notification"].Instance,
-				Name = "\0",
-				PaddingLeft = UDimNew(0, PaddingH),
-				PaddingRight = UDimNew(0, PaddingH),
-				PaddingTop = UDimNew(0, PaddingV),
-				PaddingBottom = UDimNew(0, PaddingV)
-			})
-
-			Items["Title"] = Instances:Create("TextLabel", {
-				Parent = Items["Notification"].Instance,
-				Name = "\0",
-				Size = UDim2New(1, 0, 0, TitleH),
-				BackgroundTransparency = 1,
-				BorderColor3 = FromRGB(0, 0, 0),
-				BorderSizePixel = 0,
-				Text = TitleText,
-				TextColor3 = Library.Theme["Text"],
-				TextSize = 14,
-				FontFace = Font.new("GothamBold"),
+				Text = desc,
+				TextColor3 = Theme.Inactive,
+				TextSize = desc_size,
+				FontFace = FontFace,
 				TextXAlignment = Enum.TextXAlignment.Left,
-				TextYAlignment = Enum.TextYAlignment.Top,
 				TextWrapped = true,
-				TextTransparency = 1
-			}):AddToTheme({TextColor3 = 'Text'})
-
-			Items["Description"] = Instances:Create("TextLabel", {
-				Parent = Items["Notification"].Instance,
-				Name = "\0",
-				Size = UDim2New(1, -PaddingH * 2, 0, DescH),
-				Position = UDim2New(0, PaddingH, 0, TitleH + Gap),
-				BackgroundTransparency = 1,
-				BorderColor3 = FromRGB(0, 0, 0),
-				BorderSizePixel = 0,
-				Text = DescText,
-				TextColor3 = Library.Theme["Text"],
-				TextSize = 12,
-				FontFace = Font.new("GothamBold"),
 				TextTransparency = 1,
-				TextXAlignment = Enum.TextXAlignment.Left,
-				TextYAlignment = Enum.TextYAlignment.Top,
-				TextWrapped = true,
-				TextTruncate = Enum.TextTruncate.None,
-				RichText = false,
-				TextScaled = false,
-				AutomaticSize = Enum.AutomaticSize.Y
-			}):AddToTheme({TextColor3 = 'Text'})
-
-			Instances:Create("UITextSizeConstraint", {
-				Parent = Items["Description"].Instance,
-				Name = "\0",
-				MinTextSize = 12,
-				MaxTextSize = 12
-			})
-
-			Items["Duration"] = Instances:Create("Frame", {
-				Parent = Items["Notification"].Instance,
-				Name = "\0",
-				Size = UDim2New(1, 0, 0, BarH),
-				Position = UDim2New(0, 0, 0, TitleH + Gap + DescH + BarGap),
-				BackgroundColor3 = Library.Theme["Inline"],
-				BackgroundTransparency = 1,
-				BorderColor3 = FromRGB(0, 0, 0),
-				BorderSizePixel = 0
-			}):AddToTheme({BackgroundColor3 = 'Inline'})
-
-			Instances:Create("UICorner", {
-				Parent = Items["Duration"].Instance,
-				Name = "\0",
-				CornerRadius = UDimNew(0, 5)
-			})
-
-			Items["Accent"] = Instances:Create("Frame", {
-				Parent = Items["Duration"].Instance,
-				Name = "\0",
-				Size = UDim2New(1, 0, 1, 0),
-				BackgroundColor3 = Data.Color,
-				BorderColor3 = FromRGB(0, 0, 0),
-				BorderSizePixel = 0
-			})
-
-			Instances:Create("UICorner", {
-				Parent = Items["Accent"].Instance,
-				Name = "\0",
-				CornerRadius = UDimNew(0, 5)
+				LayoutOrder = 2,
+				ZIndex = 51,
 			})
 		end
 
-		local FadeInfo = TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0)
-		local BarInfo = TweenInfo.new(Duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+		local duration_bg = Create("Frame", {
+			Parent = notif,
+			Size = UDim2New(1, 0, 0, bar_h),
+			BackgroundColor3 = Theme.Element,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			ClipsDescendants = true,
+			LayoutOrder = 2,
+			ZIndex = 51,
+		})
+		Corner(duration_bg, 2)
 
-		local Frames = { Items["Notification"], Items["Duration"] }
-		local TextLabels = { Items["Title"] }
-		local DescLabel = Items["Description"]
+		local progress = Create("Frame", {
+			Parent = duration_bg,
+			Size = UDim2New(1, 0, 1, 0),
+			BackgroundColor3 = accent,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			ZIndex = 52,
+		})
 
-		Library:Thread(function()
-			for _, Item in Frames do
-				Item:Tween(FadeInfo, {BackgroundTransparency = 0})
+		spawn(function()
+			Tween(notif, fade_info, { BackgroundTransparency = 0, Size = UDim2New(0, content_w, 0, size_y) })
+			Tween(notif_stroke, fade_info, { Transparency = 0.45 })
+			Tween(accent_bar, fade_info, { BackgroundTransparency = 0 })
+			Tween(title_lbl, fade_info, { TextTransparency = 0 })
+			if desc_lbl then
+				Tween(desc_lbl, fade_info, { TextTransparency = 0 })
 			end
+			Tween(duration_bg, fade_info, { BackgroundTransparency = 0 })
+			Tween(progress, fade_info, { BackgroundTransparency = 0 })
+			Tween(progress, bar_info, { Size = UDim2New(0, 0, 1, 0) })
 
-			for _, Item in TextLabels do
-				Item:Tween(FadeInfo, {TextTransparency = 0})
-			end
-
-			DescLabel:Tween(FadeInfo, {TextTransparency = 0.4})
-
-			Items["Notification"]:Tween(FadeInfo, {Size = UDim2New(0, ContentWidth, 0, SizeY)})
-			Items["Accent"]:Tween(BarInfo, {Size = UDim2New(0, 0, 1, 0)})
-
-			delay(Duration + 0.1, function()
-				for _, Item in Frames do
-					Item:Tween(FadeInfo, {BackgroundTransparency = 1})
+			delay(duration + 0.1, function()
+				Tween(notif, fade_info, { BackgroundTransparency = 1, Size = UDim2New(0, 0, 0, size_y) })
+				Tween(notif_stroke, fade_info, { Transparency = 1 })
+				Tween(accent_bar, fade_info, { BackgroundTransparency = 1 })
+				Tween(title_lbl, fade_info, { TextTransparency = 1 })
+				if desc_lbl then
+					Tween(desc_lbl, fade_info, { TextTransparency = 1 })
 				end
-
-				for _, Item in TextLabels do
-					Item:Tween(FadeInfo, {TextTransparency = 1})
-				end
-
-				DescLabel:Tween(FadeInfo, {TextTransparency = 1})
-
-				Items["Notification"]:Tween(FadeInfo, {Size = UDim2New(0, 0, 0, SizeY)})
-				wait(0.5)
-				Items["Notification"]:Clean()
+				Tween(duration_bg, fade_info, { BackgroundTransparency = 1 })
+				Tween(progress, fade_info, { BackgroundTransparency = 1 })
+				wait(0.4)
+				notif:Destroy()
 			end)
 		end)
 	end
 
-	local BlurEffect = Instances:Create("BlurEffect", {
+	local panel_w = IsMobile and 360 or 360
+	local pad = IsMobile and 14 or 12
+	local logo_s = IsMobile and 38 or 34
+	local btn_h = IsMobile and 46 or 36
+	local btn_gap = 8
+	local field_h = IsMobile and 42 or 36
+	local content_w = panel_w - pad * 2
+	local half_w = MathFloor((content_w - btn_gap) / 2)
+
+	local LogoUrl = "https://solixhub.com/solix-logo.png"
+	local LogoFallback = "rbxassetid://137698471325689"
+
+	local function GetLogoAsset()
+		if type(getcustomasset) ~= "function" or type(writefile) ~= "function" then
+			return LogoFallback
+		end
+		local images_dir = Folder_Configs.Images
+		if type(isfolder) == "function" and not isfolder(images_dir) and type(makefolder) == "function" then
+			pcall(makefolder, images_dir)
+		end
+		local file_path = images_dir .. "/solix-logo.png"
+		if type(isfile) ~= "function" or not isfile(file_path) then
+			local ok, content = pcall(function()
+				return game:HttpGet(LogoUrl)
+			end)
+			if not ok or type(content) ~= "string" or content == "" then
+				return LogoFallback
+			end
+			if not pcall(writefile, file_path, content) then
+				return LogoFallback
+			end
+		end
+		local ok, asset_id = pcall(getcustomasset, file_path)
+		if ok and type(asset_id) == "string" and asset_id ~= "" then
+			return asset_id
+		end
+		return LogoFallback
+	end
+
+	local ScreenGui = Create("ScreenGui", {
+		Parent = SafeGetUI(),
 		Name = "\0",
-		Size = 0,
-		Parent = Lighting
+		ZIndexBehavior = Enum.ZIndexBehavior.Global,
+		DisplayOrder = 999,
+		ResetOnSpawn = false,
+		IgnoreGuiInset = true,
 	})
 
-	local Items = { } do
-		Items["ScreenGui"] = Instances:Create("ScreenGui", {
-			Parent = SafeGetUI(),
-			Name = "\0",
-			ZIndexBehavior = Enum.ZIndexBehavior.Global,
-			DisplayOrder = 999,
-			ResetOnSpawn = false,
-			IgnoreGuiInset = true
-		})
+	local UIScale = Create("UIScale", {
+		Parent = ScreenGui,
+		Scale = 1,
+	})
 
-		Items["Overlay"] = Instances:Create("Frame", {
-			Parent = Items["ScreenGui"].Instance,
-			Name = "\0",
-			Size = UDim2New(1, 0, 1, 0),
-			BackgroundColor3 = FromRGB(0, 0, 0),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ZIndex = 1
-		})
+	local Main = Create("Frame", {
+		Parent = ScreenGui,
+		Size = UDim2New(0, 0, 0, 0),
+		Position = UDim2New(0.5, 0, 0.5, 0),
+		AnchorPoint = Vector2New(0.5, 0.5),
+		BackgroundColor3 = Theme.Background,
+		BackgroundTransparency = 0,
+		BorderSizePixel = 0,
+		ZIndex = 2,
+		ClipsDescendants = true,
+	})
+	Corner(Main, 5)
+	local MainStroke = Stroke(Main, Theme.Border, 1)
 
-		Items["MainFrame"] = Instances:Create("Frame", {
-			Parent = Items["ScreenGui"].Instance,
-			Name = "\0",
-			Size = UDim2New(0, 0, 0, 0),
-			Position = UDim2New(0.5, 0, 0.5, 0),
-			AnchorPoint = Vector2New(0.5, 0.5),
-			BackgroundColor3 = Library.Theme["Background"],
-			BackgroundTransparency = 0.15,
-			BorderSizePixel = 0,
-			ZIndex = 2
-		}):AddToTheme({BackgroundColor3 = 'Background'})
+	Create("ImageLabel", {
+		Parent = Main,
+		Size = UDim2New(1, 55, 1, 55),
+		Position = UDim2New(0.5, 0, 0.5, 0),
+		AnchorPoint = Vector2New(0.5, 0.5),
+		BackgroundTransparency = 1,
+		Image = "rbxassetid://112971167999062",
+		ImageColor3 = Theme.Shadow,
+		ImageTransparency = 0.56,
+		ScaleType = Enum.ScaleType.Slice,
+		SliceCenter = Rect.new(Vector2New(112, 112), Vector2New(147, 147)),
+		SliceScale = 0.6,
+		ZIndex = 1,
+	})
 
-		Instances:Create("UICorner", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			CornerRadius = UDimNew(0, 8)
-		})
+	local fade_items = {}
 
-		Items["MainStroke"] = Instances:Create("UIStroke", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Color = Library.Theme["Border"],
-			Thickness = 1,
-			Transparency = 1,
-			ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-		}):AddToTheme({Color = 'Border'})
-
-		Items["TitleLabel"] = Instances:Create("TextLabel", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Size = UDim2New(1, 0, 0, 40),
-			Position = UDim2New(0, 0, 0, 20),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			Text = Config.Title,
-			TextColor3 = Library.Theme["Accent"],
-			TextSize = 28,
-			FontFace = Font.new("GothamBold"),
-			TextTransparency = 1,
-			ZIndex = 2
-		}):AddToTheme({TextColor3 = 'Accent'})
-
-		Items["SubtitleLabel"] = Instances:Create("TextLabel", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Size = UDim2New(1, 0, 0, 20),
-			Position = UDim2New(0, 0, 0, 65),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			Text = Config.Description,
-			TextColor3 = Library.Theme["Inactive Text"],
-			TextSize = 13,
-			FontFace = Font.new("GothamBold"),
-			TextTransparency = 1,
-			ZIndex = 2
-		}):AddToTheme({TextColor3 = 'Inactive Text'})
-
-		Items["Line"] = Instances:Create("Frame", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Size = UDim2New(0.84, 0, 0, 1),
-			Position = UDim2New(0.08, 0, 0, 95),
-			BackgroundColor3 = Library.Theme["Border"],
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ZIndex = 2
-		}):AddToTheme({BackgroundColor3 = 'Border'})
-
-		Items["TextBoxContainer"] = Instances:Create("Frame", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Size = UDim2New(0, 480, 0, 50),
-			Position = UDim2New(0.5, 0, 0, 115),
-			AnchorPoint = Vector2New(0.5, 0),
-			BackgroundColor3 = Library.Theme["Element"],
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ZIndex = 2
-		}):AddToTheme({BackgroundColor3 = 'Element'})
-
-		Instances:Create("UICorner", {
-			Parent = Items["TextBoxContainer"].Instance,
-			Name = "\0",
-			CornerRadius = UDimNew(0, 5)
-		})
-
-		Instances:Create("UIGradient", {
-			Parent = Items["TextBoxContainer"].Instance,
-			Name = "\0",
-			Rotation = 90,
-			Color = RGBSequence({
-				RGBSequenceKeypoint(0, FromRGB(255, 255, 255)),
-				RGBSequenceKeypoint(1, FromRGB(216, 216, 216))
-			})
-		})
-
-		Items["TextBoxStroke"] = Instances:Create("UIStroke", {
-			Parent = Items["TextBoxContainer"].Instance,
-			Name = "\0",
-			Color = Library.Theme["Border"],
-			Thickness = 1,
-			Transparency = 1,
-			ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-		}):AddToTheme({Color = 'Border'})
-
-		Items["KeyTextBox"] = Instances:Create("TextBox", {
-			Parent = Items["TextBoxContainer"].Instance,
-			Name = "\0",
-			Size = UDim2New(1, -24, 1, 0),
-			Position = UDim2New(0, 12, 0, 0),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ZIndex = 2,
-			Text = "",
-			TextColor3 = Library.Theme["Text"],
-			TextSize = 15,
-			FontFace = Font.new("GothamBold"),
-			PlaceholderText = "Paste your key here...",
-			PlaceholderColor3 = Library.Theme["Inactive Text"],
-			TextXAlignment = Enum.TextXAlignment.Left,
-			TextTransparency = 1,
-			CursorPosition = -1,
-			ClearTextOnFocus = false
-		}):AddToTheme({TextColor3 = 'Text', PlaceholderColor3 = 'Inactive Text'})
-
-		Items["CloseButton"] = Instances:Create("TextButton", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Size = UDim2New(0, 30, 0, 30),
-			Position = UDim2New(1, -40, 0, 10),
-			BackgroundColor3 = Library.Theme["Element"],
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			Text = "X",
-			TextColor3 = Library.Theme["Text"],
-			TextSize = 18,
-			FontFace = Font.new("GothamBold"),
-			AutoButtonColor = false,
-			TextTransparency = 1,
-			ZIndex = 2
-		}):AddToTheme({BackgroundColor3 = 'Element', TextColor3 = 'Text'})
-
-		Instances:Create("UICorner", {
-			Parent = Items["CloseButton"].Instance,
-			Name = "\0",
-			CornerRadius = UDimNew(0, 5)
-		})
-
-		Items["CloseStroke"] = Instances:Create("UIStroke", {
-			Parent = Items["CloseButton"].Instance,
-			Name = "\0",
-			Color = Library.Theme["Border"],
-			Thickness = 1,
-			Transparency = 1,
-			ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-		}):AddToTheme({Color = 'Border'})
+	local function track(inst, kind)
+		TableInsert(fade_items, { Inst = inst, Kind = kind or "bg" })
+		return inst
 	end
 
-	local Buttons = { }
+	local header_h = logo_s + 18
+	local DragArea = Create("Frame", {
+		Parent = Main,
+		Size = UDim2New(1, -40, 0, header_h + 8),
+		BackgroundTransparency = 1,
+		ZIndex = 3,
+	})
 
-	local function CreateButton(Text, Position)
-		local Button = Instances:Create("TextButton", {
-			Parent = Items["MainFrame"].Instance,
-			Name = "\0",
-			Size = UDim2New(0, 220, 0, 45),
-			Position = Position,
-			AnchorPoint = Vector2New(0.5, 0),
-			BackgroundColor3 = Library.Theme["Element"],
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			Text = Text,
-			TextColor3 = Library.Theme["Text"],
-			TextSize = IsMobile and 13 or 15,
-			FontFace = Font.new("GothamBold"),
-			AutoButtonColor = false,
-			TextTransparency = 1,
-			ZIndex = 2
-		}):AddToTheme({BackgroundColor3 = 'Element', TextColor3 = 'Text'})
+	local CloseBtn = Create("ImageButton", {
+		Parent = Main,
+		Size = UDim2New(0, IsMobile and 26 or 22, 0, IsMobile and 26 or 22),
+		Position = UDim2New(1, -pad, 0, pad),
+		AnchorPoint = Vector2New(1, 0),
+		BackgroundTransparency = 1,
+		Image = "rbxassetid://76001605964586",
+		ImageTransparency = 1,
+		ImageColor3 = Theme.Inactive,
+		ScaleType = Enum.ScaleType.Fit,
+		AutoButtonColor = false,
+		ZIndex = 6,
+	})
 
-		Instances:Create("UICorner", {
-			Parent = Button.Instance,
-			Name = "\0",
-			CornerRadius = UDimNew(0, 5)
-		})
+	local Logo = Create("ImageLabel", {
+		Parent = Main,
+		Size = UDim2New(0, logo_s, 0, logo_s),
+		Position = UDim2New(0, pad, 0, pad),
+		BackgroundTransparency = 1,
+		Image = LogoFallback,
+		ImageTransparency = 1,
+		ScaleType = Enum.ScaleType.Fit,
+		ZIndex = 4,
+	})
+	track(Logo, "image")
 
-		Instances:Create("UIGradient", {
-			Parent = Button.Instance,
-			Name = "\0",
-			Rotation = 90,
-			Color = RGBSequence({
-				RGBSequenceKeypoint(0, FromRGB(255, 255, 255)),
-				RGBSequenceKeypoint(1, FromRGB(216, 216, 216))
-			})
-		})
-
-		Items["ButtonStroke"] = Instances:Create("UIStroke", {
-			Parent = Button.Instance,
-			Name = "\0",
-			Color = Library.Theme["Border"],
-			Thickness = 1,
-			Transparency = 1,
-			ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-		}):AddToTheme({Color = 'Border'})
-
-		TableInsert(Buttons, {Button = Button, Stroke = Items["ButtonStroke"]})
-		return Button
-	end
-
-	if IsMobile then
-		Items["Button1"] = CreateButton("Get Key (Workink)", UDim2New(0.5, 0, 0, 185))
-		Items["Button2"] = CreateButton("Get Key (Rinku)", UDim2New(0.5, 0, 0, 240))
-		Items["Button3"] = CreateButton("Join Discord", UDim2New(0.5, 0, 0, 295))
-		Items["Button4"] = CreateButton("Buy Standard Key", UDim2New(0.5, 0, 0, 350))
-
-		for _, Button in Buttons do
-			Button.Button.Instance.Size = UDim2New(0, 320, 0, 42)
+	spawn(function()
+		local asset = GetLogoAsset()
+		Logo.Image = asset
+		if asset ~= LogoFallback then
+			Logo.ImageColor3 = FromRGB(255, 255, 255)
 		end
-	else
-		Items["Button1"] = CreateButton("Get Key (Linkvertise)", UDim2New(0.25, 0, 0, 190))
-		Items["Button2"] = CreateButton("Get Key (Rinku)", UDim2New(0.75, 0, 0, 190))
-		Items["Button3"] = CreateButton("Join Discord", UDim2New(0.25, 0, 0, 255))
-		Items["Button4"] = CreateButton("Buy Standard Key", UDim2New(0.75, 0, 0, 255))
+	end)
+
+	local title_size = IsMobile and 18 or 16
+	local BrandRow = Create("Frame", {
+		Parent = Main,
+		Size = UDim2New(0, 0, 0, logo_s),
+		Position = UDim2New(0, pad + logo_s + 8, 0, pad),
+		AutomaticSize = Enum.AutomaticSize.X,
+		BackgroundTransparency = 1,
+		ZIndex = 4,
+	})
+
+	Create("UIListLayout", {
+		Parent = BrandRow,
+		FillDirection = Enum.FillDirection.Horizontal,
+		VerticalAlignment = Enum.VerticalAlignment.Center,
+		HorizontalAlignment = Enum.HorizontalAlignment.Left,
+		Padding = UDimNew(0, 0),
+		SortOrder = Enum.SortOrder.LayoutOrder,
+	})
+
+	local function BrandPart(text, color, order)
+		local lbl = Create("TextLabel", {
+			Parent = BrandRow,
+			Size = UDim2New(0, 0, 1, 0),
+			AutomaticSize = Enum.AutomaticSize.X,
+			BackgroundTransparency = 1,
+			Text = text,
+			TextColor3 = color,
+			TextSize = title_size,
+			FontFace = FontFace,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			TextYAlignment = Enum.TextYAlignment.Center,
+			TextTransparency = 1,
+			LayoutOrder = order,
+			ZIndex = 4,
+		})
+		track(lbl, "text")
+		return lbl
 	end
 
-	local TweenData = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	BrandPart("solix", Theme.Text, 1)
+	BrandPart("hub", Theme.Accent, 2)
+	BrandPart(".com", Theme.Text, 3)
+
+	local Description = Create("TextLabel", {
+		Parent = Main,
+		Size = UDim2New(1, -(pad * 2), 0, 16),
+		Position = UDim2New(0, pad, 0, pad + logo_s + 6),
+		BackgroundTransparency = 1,
+		Text = "Paste your key to continue",
+		TextColor3 = Theme.Inactive,
+		TextSize = IsMobile and 13 or 12,
+		FontFace = FontFace,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		TextTransparency = 1,
+		ZIndex = 4,
+	})
+	track(Description, "muted")
+
+	local AccentLine = Create("Frame", {
+		Parent = Main,
+		Size = UDim2New(1, 4, 0, 1),
+		Position = UDim2New(0, -2, 0, pad + logo_s + 28),
+		BackgroundColor3 = Theme.Accent,
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		ZIndex = 3,
+	})
+	track(AccentLine, "accent")
+
+	local field_y = pad + logo_s + 40
+
+	local KeyBox = Create("Frame", {
+		Parent = Main,
+		Size = UDim2New(0, content_w, 0, field_h),
+		Position = UDim2New(0, pad, 0, field_y),
+		BackgroundColor3 = Theme.Element,
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		ZIndex = 3,
+	})
+	Corner(KeyBox, 5)
+	local KeyStroke = Stroke(KeyBox, Theme.Border, 1)
+	track(KeyBox, "bg")
+	track(KeyStroke, "stroke")
+
+	local KeyInput = Create("TextBox", {
+		Parent = KeyBox,
+		Size = UDim2New(1, -20, 1, 0),
+		Position = UDim2New(0, 10, 0, 0),
+		BackgroundTransparency = 1,
+		Text = "",
+		TextColor3 = Theme.Text,
+		TextSize = IsMobile and 15 or 13,
+		FontFace = FontFace,
+		PlaceholderText = "Enter your key",
+		PlaceholderColor3 = Theme.Inactive,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		TextTransparency = 1,
+		ClearTextOnFocus = false,
+		ZIndex = 4,
+	})
+	track(KeyInput, "text")
+
+	local btn_y = field_y + field_h + 10
+	local btn_text = IsMobile and 14 or 13
+	local row2_y = btn_y + btn_h + btn_gap
+
+	local function MakeSideBtn(text, x, y, w)
+		local btn = Create("TextButton", {
+			Parent = Main,
+			Size = UDim2New(0, w, 0, btn_h),
+			Position = UDim2New(0, x, 0, y),
+			BackgroundColor3 = Theme.Element,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			Text = text,
+			TextColor3 = Theme.Text,
+			TextSize = btn_text,
+			FontFace = FontFace,
+			AutoButtonColor = false,
+			TextTransparency = 1,
+			ZIndex = 4,
+		})
+		Corner(btn, 5)
+		local stroke = Stroke(btn, Theme.Border, 1)
+		track(btn, "btn")
+		track(stroke, "stroke")
+		btn.MouseEnter:Connect(function()
+			Tween(btn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Inline })
+		end)
+		btn.MouseLeave:Connect(function()
+			Tween(btn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Element })
+		end)
+		return btn
+	end
+
+	local ContinueBtn = Create("TextButton", {
+		Parent = Main,
+		Size = UDim2New(0, half_w, 0, btn_h),
+		Position = UDim2New(0, pad, 0, btn_y),
+		BackgroundColor3 = Theme.Accent,
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		Text = "Continue",
+		TextColor3 = FromRGB(255, 255, 255),
+		TextSize = btn_text,
+		FontFace = FontFace,
+		AutoButtonColor = false,
+		TextTransparency = 1,
+		ZIndex = 4,
+	})
+	Corner(ContinueBtn, 5)
+	Create("UIGradient", {
+		Parent = ContinueBtn,
+		Rotation = 90,
+		Color = ColorSequence.new({
+			ColorSequenceKeypoint.new(0, FromRGB(255, 255, 255)),
+			ColorSequenceKeypoint.new(1, Theme.Gradient),
+		}),
+	})
+	track(ContinueBtn, "cta")
+
+	local GetKeyBtn = MakeSideBtn("Get Key", pad + half_w + btn_gap, btn_y, half_w)
+	local DiscordBtn = MakeSideBtn("Join Discord", pad, row2_y, half_w)
+	local SkipBtn = MakeSideBtn("Skip Keysystem", pad + half_w + btn_gap, row2_y, half_w)
+
+	local panel_h = row2_y + btn_h + pad
+
+	do
+		local dragging, drag_start, start_pos, changed
+
+		DragArea.InputBegan:Connect(function(input)
+			if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then
+				return
+			end
+			dragging = true
+			drag_start = input.Position
+			start_pos = Main.Position
+			if changed then
+				return
+			end
+			changed = input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+					if changed then
+						changed:Disconnect()
+						changed = nil
+					end
+				end
+			end)
+		end)
+
+		UserInputService.InputChanged:Connect(function(input)
+			if not dragging then
+				return
+			end
+			if input.UserInputType ~= Enum.UserInputType.MouseMovement and input.UserInputType ~= Enum.UserInputType.Touch then
+				return
+			end
+			local scale = UIScale.Scale or 1
+			local delta = (input.Position - drag_start) / scale
+			Tween(Main, TweenInfo.new(0.16, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
+				Position = UDim2New(
+					start_pos.X.Scale,
+					start_pos.X.Offset + delta.X,
+					start_pos.Y.Scale,
+					start_pos.Y.Offset + delta.Y
+				),
+			})
+		end)
+	end
+
+	local tween_data = TweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	local fade_in = TweenInfo.new(0.35, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	local validating = false
+	local closed = false
+
+	local function set_fade(transparency)
+		local info = transparency == 0 and fade_in or tween_data
+		for _, item in fade_items do
+			local inst = item.Inst
+			local kind = item.Kind
+			if kind == "text" then
+				Tween(inst, info, { TextTransparency = transparency })
+			elseif kind == "muted" then
+				Tween(inst, info, { TextTransparency = transparency == 0 and 0.1 or 1 })
+			elseif kind == "stroke" then
+				Tween(inst, info, { Transparency = transparency == 0 and 0.35 or 1 })
+			elseif kind == "cta" or kind == "btn" then
+				Tween(inst, info, { BackgroundTransparency = transparency, TextTransparency = transparency })
+			elseif kind == "accent" then
+				Tween(inst, info, { BackgroundTransparency = transparency })
+			elseif kind == "image" then
+				Tween(inst, info, { ImageTransparency = transparency })
+			else
+				Tween(inst, info, { BackgroundTransparency = transparency })
+			end
+		end
+	end
 
 	local function CloseUI()
-		BlurEffect:Tween(TweenData, {Size = 0})
-		Items["Overlay"]:Tween(TweenData, {BackgroundTransparency = 1})
-
-		Items["TitleLabel"]:Tween(TweenData, {TextTransparency = 1})
-		Items["SubtitleLabel"]:Tween(TweenData, {TextTransparency = 1})
-		Items["Line"]:Tween(TweenData, {BackgroundTransparency = 1})
-		Items["TextBoxContainer"]:Tween(TweenData, {BackgroundTransparency = 1})
-		Items["TextBoxStroke"]:Tween(TweenData, {Transparency = 1})
-		Items["KeyTextBox"]:Tween(TweenData, {TextTransparency = 1})
-		Items["CloseButton"]:Tween(TweenData, {BackgroundTransparency = 1, TextTransparency = 1})
-		Items["CloseStroke"]:Tween(TweenData, {Transparency = 1})
-		Items["MainStroke"]:Tween(TweenData, {Transparency = 1})
-
-		for _, Button in Buttons do
-			Button.Button:Tween(TweenData, {BackgroundTransparency = 1, TextTransparency = 1})
-			Button.Stroke:Tween(TweenData, {Transparency = 1})
+		if closed then
+			return
 		end
-
-		Items["MainFrame"]:Tween(TweenData, {Size = UDim2New(0, 0, 0, 0)})
-		wait(0.35)
-		BlurEffect:Clean()
-		Items["ScreenGui"]:Clean()
+		closed = true
+		Tween(MainStroke, tween_data, { Transparency = 1 })
+		Tween(CloseBtn, tween_data, { ImageTransparency = 1 })
+		set_fade(1)
+		Tween(Main, tween_data, { Size = UDim2New(0, 0, 0, 0) })
+		wait(0.28)
+		ScreenGui:Destroy()
 	end
 
-	local function ValidateKey(Key)
-		local CleanedKey = Key:gsub("%s", "")
-
-		if not string.match(CleanedKey, "^[A-Za-z0-9]+$") or #CleanedKey ~= 32 then
-			Library:Notification({
+	local function CopyLink(url, copied_msg)
+		if setclipboard then
+			pcall(setclipboard, url)
+			Notify({
 				Title = "Solix Hub",
-				Description = "Invalid key format. Key must be 32 characters.",
-				Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-				Duration = 5
+				Description = copied_msg,
+				Duration = 4,
 			})
+			return
+		end
+		Notify({
+			Title = "Solix Hub",
+			Description = "Couldnt copy. Open this link: " .. url,
+			Duration = 6,
+		})
+	end
+
+	local function set_continue(text, active)
+		if closed then
+			return
+		end
+		pcall(function()
+			ContinueBtn.Text = text
+			ContinueBtn.Active = active
+		end)
+	end
+
+	local function ValidateKey(key, opts)
+		opts = opts or {}
+		if validating or closed then
 			return false
 		end
 
-		if CleanedKey ~= Key then
-			Library:Notification({
-				Title = "Solix Hub",
-				Description = "Extra spaces detected, verifying without spaces...",
-				Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-				Duration = 5
-			})
-		end
+		local cleaned = key:gsub("%s", "")
+		local from_saved = opts.from_saved == true
 
-		local Success, Result = pcall(LuarmorApi.check_key, CleanedKey)
-
-		if not Success then
-			Library:Notification({
-				Title = "Solix Hub",
-				Description = "Network error. Please try again.",
-				Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-				Duration = 5
-			})
-			return false
-		end
-
-		if Result.code == "KEY_VALID" then
-			script_key = CleanedKey
-
-			if not isfile(Config.File) then
-				pcall(writefile, Config.File, CleanedKey)
-			elseif readfile(Config.File) ~= CleanedKey then
-				pcall(writefile, Config.File, CleanedKey)
+		if not string.match(cleaned, "^[A-Za-z0-9]+$") or #cleaned ~= 32 then
+			if from_saved then
+				DeleteFile(Config.File)
 			end
-
-			getgenv().key = CleanedKey
-			getgenv().luarmor_api = LuarmorApi
-			getgenv().key_expire = Result.data and Result.data.auth_expire or 0
-			getgenv().key_note = Result.data and Result.data.note or ""
-			getgenv().key_executions = Result.data and Result.data.total_executions or 0
-
-			Library:Notification({
+			Notify({
 				Title = "Solix Hub",
-				Description = "Key expires in: " .. ToTime(getgenv().key_expire - os.time()),
-				Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-				Duration = 5
+				Description = "That key looks wrong. It should be 32 letters/numbers.",
+				Duration = 5,
+			})
+			return false, "format"
+		end
+
+		validating = true
+		set_continue("Checking...", false)
+		local success, result = pcall(LuarmorApi.check_key, cleaned)
+
+		if closed then
+			validating = false
+			return false, "closed"
+		end
+
+		if not success or type(result) ~= "table" then
+			validating = false
+			set_continue("Continue", true)
+			Notify({
+				Title = "Solix Hub",
+				Description = "Couldnt check key. Try again.",
+				Duration = 4,
+			})
+			return false, "network"
+		end
+
+		if result.code == "KEY_VALID" then
+			script_key = cleaned
+			pcall(writefile, Config.File, cleaned)
+
+			getgenv().key = cleaned
+			getgenv().luarmor_api = LuarmorApi
+			getgenv().key_expire = result.data and result.data.auth_expire or 0
+			getgenv().key_note = result.data and result.data.note or ""
+			getgenv().key_executions = result.data and result.data.total_executions or 0
+
+			set_continue("Loading...", false)
+			Notify({
+				Title = "Solix Hub",
+				Description = "Key works. Time left: " .. ToTime(getgenv().key_expire),
+				Duration = 4,
 			})
 
 			CloseUI()
 			wait(0.03)
-			LuarmorApi.load_script()
-
+			pcall(LuarmorApi.load_script)
 			return true
 		end
 
-		DeleteFile(Config.File)
-
-		if ErrorMessages[Result.code] then
-			if Result.code == "SECURITY_ERROR" or Result.code == "UNKNOWN_ERROR" then
-				Library:Notification({
-					Title = "Solix Hub",
-					Description = ErrorMessages[Result.code],
-					Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-					Duration = 5
-				})
-			else
-				Library:Notification({
-					Title = "Solix Hub",
-					Description = ErrorMessages[Result.code],
-					Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-					Duration = 5
-				})
+		validating = false
+		set_continue("Continue", true)
+		if from_saved or isfile(Config.File) then
+			local saved = isfile(Config.File) and readfile(Config.File)
+			if from_saved or (type(saved) == "string" and saved:gsub("%s", "") == cleaned) then
+				DeleteFile(Config.File)
 			end
-			return false
 		end
-
-		Library:Notification({
+		Notify({
 			Title = "Solix Hub",
-			Description = "Key check failed:\nCode: " .. Result.code,
-			Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-			Duration = 5
+			Description = ErrorMessages[result.code] or result.message or "Key check failed.",
+			Duration = 5,
 		})
-		return false
+		return false, "invalid"
 	end
 
-	for _, Button in Buttons do
-		Button.Button:Connect("MouseEnter", function()
-			Button.Button:Tween(TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = IsMobile and UDim2New(0, 330, 0, 45) or UDim2New(0, 230, 0, 48)})
-		end)
-		Button.Button:Connect("MouseLeave", function()
-			Button.Button:Tween(TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = IsMobile and UDim2New(0, 320, 0, 42) or UDim2New(0, 220, 0, 45)})
-		end)
-		Button.Button:Connect("MouseButton1Down", function()
-			Button.Button:Tween(TweenInfo.new(0.08), {Size = IsMobile and UDim2New(0, 310, 0, 40) or UDim2New(0, 210, 0, 42)})
-		end)
-		Button.Button:Connect("MouseButton1Up", function()
-			Button.Button:Tween(TweenInfo.new(0.08), {Size = IsMobile and UDim2New(0, 320, 0, 42) or UDim2New(0, 220, 0, 45)})
-		end)
-	end
-
-	Items["Button1"]:Connect("MouseButton1Click", function()
-		if setclipboard then
-			setclipboard(Config.Linkvertise)
-		end
-		Library:Notification({
-			Title = "Solix Hub",
-			Description = "Linkvertise link copied to clipboard",
-			Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-			Duration = 5
-		})
-	end)
-
-	Items["Button2"]:Connect("MouseButton1Click", function()
-		if setclipboard then
-			setclipboard(Config.Rinku)
-		end
-		Library:Notification({
-			Title = "Solix Hub",
-			Description = "Rinku link copied to clipboard",
-			Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-			Duration = 5
-		})
-	end)
-
-	Items["Button3"]:Connect("MouseButton1Click", function()
-		if setclipboard then
-			setclipboard(Config.Discord)
-		end
-		Library:Notification({
-			Title = "Solix Hub",
-			Description = "Discord invite copied to clipboard",
-			Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-			Duration = 5
-		})
-	end)
-
-	Items["Button4"]:Connect("MouseButton1Click", function()
-		if setclipboard then
-			setclipboard(Config.Shop)
-		end
-		Library:Notification({
-			Title = "Solix Hub",
-			Description = "Standard key shop link copied",
-			Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
-			Duration = 5
-		})
-	end)
-
-	Items["KeyTextBox"]:Connect("FocusLost", function()
-		if Items["KeyTextBox"].Instance.Text == "" then
+	local function try_submit()
+		if KeyInput.Text == "" then
+			Notify({
+				Title = "Solix Hub",
+				Description = "Paste a key first.",
+				Duration = 3,
+			})
 			return
 		end
+		local ok, reason = ValidateKey(KeyInput.Text)
+		if not ok and (reason == "format" or reason == "invalid") then
+			KeyInput.Text = ""
+		end
+	end
 
-		if not ValidateKey(Items["KeyTextBox"].Instance.Text) then
-			Items["KeyTextBox"].Instance.Text = ""
+	ContinueBtn.MouseEnter:Connect(function()
+		if validating then
+			return
+		end
+		Tween(ContinueBtn, TweenInfo.new(0.12), { BackgroundColor3 = FromRGB(235, 70, 140) })
+	end)
+	ContinueBtn.MouseLeave:Connect(function()
+		Tween(ContinueBtn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Accent })
+	end)
+
+	KeyInput.Focused:Connect(function()
+		Tween(KeyStroke, TweenInfo.new(0.12), { Color = Theme.Accent, Transparency = 0.1 })
+	end)
+	KeyInput.FocusLost:Connect(function(enter)
+		Tween(KeyStroke, TweenInfo.new(0.12), { Color = Theme.Border, Transparency = 0.25 })
+		if enter then
+			try_submit()
 		end
 	end)
 
-	Items["CloseButton"]:Connect("MouseButton1Click", function()
-		CloseUI()
-	end)
-
-	Items["CloseButton"]:Connect("MouseEnter", function()
-		Items["CloseButton"]:Tween(TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2New(0, 35, 0, 35)})
-	end)
-
-	Items["CloseButton"]:Connect("MouseLeave", function()
-		Items["CloseButton"]:Tween(TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2New(0, 30, 0, 30)})
-	end)
-
-	Items["MainFrame"]:MakeDraggable()
-
-	local UIScale = InstanceNew("UIScale")
-	UIScale.Scale = 1
-	UIScale.Parent = Items["ScreenGui"].Instance
-
-	local function GetViewportSize()
-		local Camera = Workspace.CurrentCamera
-		return (Camera and Camera.ViewportSize) or Vector2.new(1920, 1080)
-	end
-
-	local function SetMobileScale()
-		local Viewport = GetViewportSize()
-
-		if IsMobile then
-			local Scale = MathClamp(Viewport.Y / 500, 0.5, 1.5)
-			UIScale.Scale = Scale
-		else
-			UIScale.Scale = 1
+	KeyInput:GetPropertyChangedSignal("Text"):Connect(function()
+		local cleaned = KeyInput.Text:gsub("%s", "")
+		if #cleaned == 32 and string.match(cleaned, "^[A-Za-z0-9]+$") then
+			try_submit()
 		end
-	end
+	end)
+
+	ContinueBtn.MouseButton1Click:Connect(try_submit)
+
+	GetKeyBtn.MouseButton1Click:Connect(function()
+		CopyLink(Config.Workink, "WorkInk link copied. Paste it in your browser.")
+	end)
+
+	DiscordBtn.MouseButton1Click:Connect(function()
+		spawn(function()
+			local opened = false
+			if typeof(request) == "function" then
+				local success, response = pcall(function()
+					return request({
+						Url = "http://127.0.0.1:6463/rpc?v=1",
+						Method = "POST",
+						Headers = {
+							["Content-Type"] = "application/json",
+							["Origin"] = "https://discord.com",
+						},
+						Body = HttpService:JSONEncode({
+							cmd = "INVITE_BROWSER",
+							args = { code = "solixhub" },
+							nonce = HttpService:GenerateGUID(false),
+						}),
+					})
+				end)
+				opened = success and response and response.StatusCode == 200
+			end
+			if not opened and setclipboard then
+				pcall(setclipboard, Config.Discord)
+			end
+			Notify({
+				Title = "Solix Hub",
+				Description = opened and "Opening Discord invite." or "Discord invite copied.",
+				Duration = 4,
+			})
+		end)
+	end)
+
+	SkipBtn.MouseButton1Click:Connect(function()
+		CopyLink(Config.Shop, "Buy link copied. Open it to skip ads and get a key.")
+	end)
+
+	CloseBtn.MouseEnter:Connect(function()
+		Tween(CloseBtn, TweenInfo.new(0.12), { ImageColor3 = Theme.Text })
+	end)
+	CloseBtn.MouseLeave:Connect(function()
+		Tween(CloseBtn, TweenInfo.new(0.12), { ImageColor3 = Theme.Inactive })
+	end)
+	CloseBtn.MouseButton1Click:Connect(CloseUI)
 
 	if IsMobile then
-		Items["MainFrame"].Instance.Size = UDim2New(0, 380, 0, 440)
-		Items["TitleLabel"].Instance.TextSize = 22
-		Items["SubtitleLabel"].Instance.TextSize = 10
-		Items["TextBoxContainer"].Instance.Size = UDim2New(0, 340, 0, 45)
-		SetMobileScale()
+		local cam = Workspace.CurrentCamera
+		local viewport = (cam and cam.ViewportSize) or Vector2New(1920, 1080)
+		UIScale.Scale = MathClamp(viewport.Y / 720, 0.7, 1.2)
 	end
 
-	local FinalSize = IsMobile and UDim2New(0, 380, 0, 440) or UDim2New(0, 580, 0, 340)
-	local TweenInfo2 = TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	Tween(Main, TweenInfo.new(0.28, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+		Size = UDim2New(0, panel_w, 0, panel_h),
+	})
 
-	BlurEffect:Tween(TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = 24})
-	Items["Overlay"]:Tween(TweenInfo.new(0.3), {BackgroundTransparency = 0.3})
-	Items["MainFrame"]:Tween(TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = FinalSize})
+	wait(0.18)
 
-	wait(0.3)
-
-	Items["TitleLabel"]:Tween(TweenInfo2, {TextTransparency = 0})
-	Items["SubtitleLabel"]:Tween(TweenInfo2, {TextTransparency = 0})
-	Items["Line"]:Tween(TweenInfo2, {BackgroundTransparency = 0})
-	Items["TextBoxContainer"]:Tween(TweenInfo2, {BackgroundTransparency = 0})
-	Items["TextBoxStroke"]:Tween(TweenInfo2, {Transparency = 0})
-	Items["KeyTextBox"]:Tween(TweenInfo2, {TextTransparency = 0})
-	Items["CloseButton"]:Tween(TweenInfo2, {BackgroundTransparency = 0, TextTransparency = 0})
-	Items["CloseStroke"]:Tween(TweenInfo2, {Transparency = 0})
-	Items["MainStroke"]:Tween(TweenInfo2, {Transparency = 0})
-
-	for _, Button in Buttons do
-		Button.Button:Tween(TweenInfo2, {BackgroundTransparency = 0, TextTransparency = 0})
-		Button.Stroke:Tween(TweenInfo2, {Transparency = 0})
-	end
+	Tween(MainStroke, fade_in, { Transparency = 0.2 })
+	Tween(CloseBtn, fade_in, { ImageTransparency = 0 })
+	set_fade(0)
 
 	spawn(function()
-		while wait(0.3) do
-			local SavedKey = (isfile(Config.File) and readfile(Config.File)) or (script_key ~= "" and script_key) or nil
-
-			if SavedKey and ValidateKey(SavedKey) then
-				return
-			end
+		wait(0.35)
+		if closed or validating then
+			return
+		end
+		local from_file = isfile(Config.File) and readfile(Config.File)
+		local saved = from_file or (script_key ~= nil and script_key ~= "" and script_key) or nil
+		if saved then
+			ValidateKey(saved, { from_saved = from_file and true or false })
 		end
 	end)
 end
