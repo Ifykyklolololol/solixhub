@@ -118,6 +118,16 @@ spawn(function()
 	pcall(loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0e8027054b595b3d0a44828a78e0c06e.lua"))())
 end)
 
+local Library
+local Webhook
+local Flag
+
+repeat wait(0.3)
+	Library = getgenv().Library
+	Webhook = getgenv().Webhook
+	Flag = Library and Library.Flags
+until Library and type(Library) == "table" and type(Library.Window) == "function" and Webhook and type(Webhook) == "table" and type(Webhook.CreateMessage) == "function"
+
 local function apply_script_key(key)
 	script_key = key
 	getgenv().script_key = key
