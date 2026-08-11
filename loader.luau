@@ -110,10 +110,57 @@ end
 local LuarmorApi = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
 LuarmorApi.script_id = ScriptId
 
-if IsKeyless then
+local function apply_script_key(key)
+	script_key = key
+	getgenv().script_key = key
+	getgenv().key = key
+	if type(_G) == "table" then
+		_G.script_key = key
+	end
+	if type(shared) == "table" then
+		shared.script_key = key
+	end
 	pcall(function()
-		LuarmorApi.load_script()
+		if type(getrenv) == "function" then
+			local env = getrenv()
+			if type(env) == "table" then
+				env.script_key = key
+			end
+		end
 	end)
+end
+
+local function load_luarmor_script(key)
+	if type(key) == "string" and key ~= "" then
+		apply_script_key(key)
+	end
+
+	local urls = {
+		"https://api.luarmor.net/files/v4/loaders/" .. ScriptId .. ".lua",
+		"https://api.luarmor.net/files/v3/loaders/" .. ScriptId .. ".lua",
+	}
+
+	for _, url in urls do
+		local ok_src, src = pcall(game.HttpGet, game, url)
+		if ok_src and type(src) == "string" and #src > 32 then
+			if type(key) == "string" and key ~= "" then
+				src = 'script_key="' .. key .. '";getgenv().script_key=script_key;' .. src
+			end
+			local fn = loadstring(src)
+			if type(fn) == "function" then
+				local ok_run = pcall(fn)
+				if ok_run then
+					return true
+				end
+			end
+		end
+	end
+
+	return pcall(LuarmorApi.load_script)
+end
+
+if IsKeyless then
+	pcall(load_luarmor_script)
 	return
 end
 
@@ -911,14 +958,9 @@ do
 		end
 
 		if result.code == "KEY_VALID" then
-			script_key = cleaned
-			getgenv().script_key = cleaned
-			if type(_G) == "table" then
-				_G.script_key = cleaned
-			end
+			apply_script_key(cleaned)
 			pcall(writefile, Config.File, cleaned)
 
-			getgenv().key = cleaned
 			getgenv().luarmor_api = LuarmorApi
 			getgenv().key_expire = result.data and result.data.auth_expire or 0
 			getgenv().key_note = result.data and result.data.note or ""
@@ -933,7 +975,7 @@ do
 
 			CloseUI()
 			wait(0.03)
-			pcall(LuarmorApi.load_script)
+			load_luarmor_script(cleaned)
 			return true
 		end
 
