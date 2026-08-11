@@ -912,6 +912,10 @@ do
 
 		if result.code == "KEY_VALID" then
 			script_key = cleaned
+			getgenv().script_key = cleaned
+			if type(_G) == "table" then
+				_G.script_key = cleaned
+			end
 			pcall(writefile, Config.File, cleaned)
 
 			getgenv().key = cleaned
