@@ -62,7 +62,7 @@ local GameList = {
 	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
 	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
 	["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true }, -- Dig & Clean
-    ["7613921865"] = id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expedition
+    ["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expedition
 }
 
 local Config = {
