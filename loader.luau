@@ -67,7 +67,7 @@ local GameList = {
 
 local Config = {
 	File = "solixhub/savedkey.txt",
-	Workink = "https://rekonise.com/workink-al8vg",
+	Workink = "https://rekonise.com/solix-hub-na1v7",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
