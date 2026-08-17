@@ -62,12 +62,15 @@ local GameList = {
 	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
 	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
 	["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true }, -- Dig & Clean
-    ["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expedition
+	["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expedition
+	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = true }, -- Steal A Egg 
+
 }
 
 local Config = {
 	File = "solixhub/savedkey.txt",
-	Workink = "https://rekonise.com/solix-hub-na1v7",
+	Workink = "https://rekonise.com/workink-al8vg",
+	Rinku = "https://ads.luarmor.net/get_key?for=Solix_Hub_Rinku-pqJCGTqnTsng",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
@@ -111,57 +114,10 @@ end
 local LuarmorApi = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
 LuarmorApi.script_id = ScriptId
 
-local function apply_script_key(key)
-	script_key = key
-	getgenv().script_key = key
-	getgenv().key = key
-	if type(_G) == "table" then
-		_G.script_key = key
-	end
-	if type(shared) == "table" then
-		shared.script_key = key
-	end
-	pcall(function()
-		if type(getrenv) == "function" then
-			local env = getrenv()
-			if type(env) == "table" then
-				env.script_key = key
-			end
-		end
-	end)
-end
-
-local function load_luarmor_script(key)
-	if type(key) == "string" and key ~= "" then
-		apply_script_key(key)
-	end
-
-	local urls = {
-		"https://api.luarmor.net/files/v4/loaders/" .. ScriptId .. ".lua",
-		"https://api.luarmor.net/files/v3/loaders/" .. ScriptId .. ".lua",
-	}
-
-	for _, url in urls do
-		local ok_src, src = pcall(game.HttpGet, game, url)
-		if ok_src and type(src) == "string" and #src > 32 then
-			if type(key) == "string" and key ~= "" then
-				src = 'script_key="' .. key .. '";getgenv().script_key=script_key;' .. src
-			end
-			local fn = loadstring(src)
-			if type(fn) == "function" then
-				local ok_run = pcall(fn)
-				if ok_run then
-					return true
-				end
-			end
-		end
-	end
-
-	return pcall(LuarmorApi.load_script)
-end
+local LoaderUrl = "https://api.luarmor.net/files/v4/loaders/" .. ScriptId .. ".lua"
 
 if IsKeyless then
-	pcall(load_luarmor_script)
+	loadstring(game:HttpGet(LoaderUrl))()
 	return
 end
 
@@ -805,6 +761,87 @@ do
 
 	local panel_h = row2_y + btn_h + pad
 
+	local popup_w = 280
+	local popup_inner = popup_w - pad * 2
+	local popup_btn1_y = pad + 28
+	local popup_btn2_y = popup_btn1_y + btn_h + btn_gap
+	local popup_h = popup_btn2_y + btn_h + pad
+	local popup_open = false
+
+	local KeyPopup = Create("Frame", {
+		Parent = ScreenGui,
+		Size = UDim2New(1, 0, 1, 0),
+		BackgroundColor3 = FromRGB(0, 0, 0),
+		BackgroundTransparency = 1,
+		Visible = false,
+		BorderSizePixel = 0,
+		ZIndex = 20,
+	})
+
+	local OverlayBtn = Create("TextButton", {
+		Parent = KeyPopup,
+		Size = UDim2New(1, 0, 1, 0),
+		BackgroundTransparency = 1,
+		Text = "",
+		AutoButtonColor = false,
+		ZIndex = 20,
+	})
+
+	local PopupPanel = Create("Frame", {
+		Parent = KeyPopup,
+		Size = UDim2New(0, 0, 0, 0),
+		Position = UDim2New(0.5, 0, 0.5, 0),
+		AnchorPoint = Vector2New(0.5, 0.5),
+		BackgroundColor3 = Theme.Background,
+		BackgroundTransparency = 0,
+		BorderSizePixel = 0,
+		ClipsDescendants = true,
+		ZIndex = 21,
+	})
+	Corner(PopupPanel, 5)
+	local PopupStroke = Stroke(PopupPanel, Theme.Border, 1)
+
+	Create("TextLabel", {
+		Parent = PopupPanel,
+		Size = UDim2New(1, -(pad * 2), 0, 20),
+		Position = UDim2New(0, pad, 0, pad),
+		BackgroundTransparency = 1,
+		Text = "Get Key",
+		TextColor3 = Theme.Text,
+		TextSize = title_size,
+		FontFace = FontFace,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		ZIndex = 22,
+	})
+
+	local function MakePopupBtn(text, y)
+		local btn = Create("TextButton", {
+			Parent = PopupPanel,
+			Size = UDim2New(0, popup_inner, 0, btn_h),
+			Position = UDim2New(0, pad, 0, y),
+			BackgroundColor3 = Theme.Element,
+			BorderSizePixel = 0,
+			Text = text,
+			TextColor3 = Theme.Text,
+			TextSize = btn_text,
+			FontFace = FontFace,
+			AutoButtonColor = false,
+			ZIndex = 22,
+		})
+		Corner(btn, 5)
+		Stroke(btn, Theme.Border, 0.35)
+		btn.MouseEnter:Connect(function()
+			Tween(btn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Inline })
+		end)
+		btn.MouseLeave:Connect(function()
+			Tween(btn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Element })
+		end)
+		return btn
+	end
+
+	local LinkvertiseBtn = MakePopupBtn("Linkvertise", popup_btn1_y)
+	local RinkuBtn = MakePopupBtn("Rinku", popup_btn2_y)
+
 	do
 		local dragging, drag_start, start_pos, changed
 
@@ -877,11 +914,43 @@ do
 		end
 	end
 
+	local function HideKeyPopup()
+		if not popup_open then
+			return
+		end
+		popup_open = false
+		Tween(KeyPopup, tween_data, { BackgroundTransparency = 1 })
+		Tween(PopupStroke, tween_data, { Transparency = 1 })
+		Tween(PopupPanel, tween_data, { Size = UDim2New(0, 0, 0, 0) })
+		wait(0.22)
+		if not popup_open then
+			KeyPopup.Visible = false
+		end
+	end
+
+	local function ShowKeyPopup()
+		if closed or popup_open then
+			return
+		end
+		popup_open = true
+		KeyPopup.Visible = true
+		PopupStroke.Transparency = 1
+		PopupPanel.Size = UDim2New(0, 0, 0, 0)
+		KeyPopup.BackgroundTransparency = 1
+		Tween(KeyPopup, fade_in, { BackgroundTransparency = 0.45 })
+		Tween(PopupStroke, fade_in, { Transparency = 0.2 })
+		Tween(PopupPanel, TweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+			Size = UDim2New(0, popup_w, 0, popup_h),
+		})
+	end
+
 	local function CloseUI()
 		if closed then
 			return
 		end
 		closed = true
+		popup_open = false
+		KeyPopup.Visible = false
 		Tween(MainStroke, tween_data, { Transparency = 1 })
 		Tween(CloseBtn, tween_data, { ImageTransparency = 1 })
 		set_fade(1)
@@ -959,9 +1028,10 @@ do
 		end
 
 		if result.code == "KEY_VALID" then
-			apply_script_key(cleaned)
+			script_key = cleaned
 			pcall(writefile, Config.File, cleaned)
 
+			getgenv().key = cleaned
 			getgenv().luarmor_api = LuarmorApi
 			getgenv().key_expire = result.data and result.data.auth_expire or 0
 			getgenv().key_note = result.data and result.data.note or ""
@@ -976,7 +1046,7 @@ do
 
 			CloseUI()
 			wait(0.03)
-			load_luarmor_script(cleaned)
+			loadstring(game:HttpGet(LoaderUrl))()
 			return true
 		end
 
@@ -1040,8 +1110,20 @@ do
 
 	ContinueBtn.MouseButton1Click:Connect(try_submit)
 
-	GetKeyBtn.MouseButton1Click:Connect(function()
-		CopyLink(Config.Workink, "WorkInk link copied. Paste it in your browser.")
+	GetKeyBtn.MouseButton1Click:Connect(ShowKeyPopup)
+
+	OverlayBtn.MouseButton1Click:Connect(function()
+		spawn(HideKeyPopup)
+	end)
+
+	LinkvertiseBtn.MouseButton1Click:Connect(function()
+		CopyLink(Config.Workink, "Linkvertise link copied. Paste it in your browser.")
+		spawn(HideKeyPopup)
+	end)
+
+	RinkuBtn.MouseButton1Click:Connect(function()
+		CopyLink(Config.Rinku, "Rinku link copied. Paste it in your browser.")
+		spawn(HideKeyPopup)
 	end)
 
 	DiscordBtn.MouseButton1Click:Connect(function()
