@@ -62,15 +62,15 @@ local GameList = {
 	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
 	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
 	["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true }, -- Dig & Clean
-	["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expedition
-	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = false }, -- Steal A Egg 
+	["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expeditions
+	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = false }, -- Steal An Egg 
 
 }
 
 local Config = {
 	File = "solixhub/savedkey.txt",
-	Workink = "https://rekonise.com/workink-al8vg",
-	Rinku = "https://ads.luarmor.net/get_key?for=Solix_Hub_Rinku-pqJCGTqnTsng",
+	Workink = "https://rekonise.com/linkvertise-2bbnc",
+	Rinku = "https://rekonise.com/rinku-z0di3",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
