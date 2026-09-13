@@ -71,8 +71,8 @@ local GameList = {
 
 local Config = {
 	File = "solixhub/savedkey.txt",
-	Workink = "https://rekonise.com/linkvertise-2bbnc",
-	Rinku = "https://rekonise.com/rinku-z0di3",
+	Workink = "https://ads.luarmor.net/get_key?for=Solix_Hub_Linkvertise-OWlLHDMCHADk",
+	Rinku = "https://ads.luarmor.net/get_key?for=Solix_Hub_Rinku-pqJCGTqnTsng",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
