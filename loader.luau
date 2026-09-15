@@ -49,24 +49,25 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
-	["7326934954"] = { id = "00e140acb477c5ecde501c1d448df6f9", keyless = true }, -- 99 Nights in the Forest
 	["9584852943"] = { id = "61e0f394c005902cda5643069ac59226", keyless = false }, -- +1 Speed Keyboard Escape
-	["4658598196"] = { id = "d383a1d5c0a779bbfd0a2b74437923d5", keyless = true }, -- Attack on Titan Revolution
-	["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expeditions
+	["7326934954"] = { id = "00e140acb477c5ecde501c1d448df6f9", keyless = true }, -- 99 Nights in the Forest
 	["10148749921"] = { id = "0d120852a6e2eb65c691e5ce2c628429", keyless = false }, -- Animal Hospital
+	["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expeditions
+	["4658598196"] = { id = "d383a1d5c0a779bbfd0a2b74437923d5", keyless = true }, -- Attack on Titan Revolution
 	["994732206"] = { id = "e2718ddebf562c5c4080dfce26b09398", keyless = false }, -- Blox Fruits
 	["5130394318"] = { id = "3e7a75a970118d0f0cf629369524dc7d", keyless = false }, -- Bizarre Lineage
 	["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true }, -- Dig & Clean
 	["10440833423"] = { id = "19c44f6c67f0e82e45e456bf81646e01", keyless = true }, -- Greedy Growers
+	["10200395747"] = { id = "535322ccaa7a6ba59febea91b085c89c", keyless = true }, -- Grow a Garden 2
 	["648454481"] = { id = "6ef7ec6eab3760abd03bfc052cb622d5", keyless = true }, -- Grand Piece Online
 	["8342498724"] = { id = "98764f0bfbebe1fb1cc4bfd0d9758424", keyless = true }, -- Heavyweight Fishing
-	["10200395747"] = { id = "535322ccaa7a6ba59febea91b085c89c", keyless = true }, -- Grow a Garden 2
 	["3808223175"] = { id = "4fe2dfc202115670b1813277df916ab2", keyless = false }, -- Jujutsu Infinite
+	["10690360998"] = { id = "1785e877b45d97d240f194a5682e4d95", keyless = true }, -- Jump for Animals!
 	["66654135"] = { id = "1bc67a62ae73efe4babe9f2b6b7e4646", keyless = true }, -- Murder Mystery 2
-	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
-	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
 	["7395930870"] = { id = "d3191d52e71790d40a4d169f5becd325", keyless = true }, -- Sell Lemons
+	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
 	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = false }, -- Steal An Egg
+	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
 }
 
 local Config = {
