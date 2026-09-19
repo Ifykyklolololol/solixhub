@@ -64,10 +64,10 @@ local GameList = {
 	["3808223175"] = { id = "4fe2dfc202115670b1813277df916ab2", keyless = false }, -- Jujutsu Infinite
 	["10690360998"] = { id = "1785e877b45d97d240f194a5682e4d95", keyless = true }, -- Jump for Animals!
 	["66654135"] = { id = "1bc67a62ae73efe4babe9f2b6b7e4646", keyless = true }, -- Murder Mystery 2
+    ["5595353122"] = { id = "4ad5f50053184782fb6c828f5af721e8", keyless = true }, -- Slayers 2
 	["7395930870"] = { id = "d3191d52e71790d40a4d169f5becd325", keyless = true }, -- Sell Lemons
 	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
-	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = false }, -- Steal An Egg
-	["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
+	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = false } -- Steal An Egg
 }
 
 local Config = {
