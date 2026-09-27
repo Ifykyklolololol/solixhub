@@ -49,49 +49,56 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
-	["9584852943"] = { id = "61e0f394c005902cda5643069ac59226", keyless = false }, -- +1 Speed Keyboard Escape
-	["7326934954"] = { id = "00e140acb477c5ecde501c1d448df6f9", keyless = true }, -- 99 Nights in the Forest
-	["10148749921"] = { id = "0d120852a6e2eb65c691e5ce2c628429", keyless = false }, -- Animal Hospital
-	["7613921865"] = { id = "46d43d3868af285218f28453704b620b", keyless = true }, -- Anime Expeditions
-	["4658598196"] = { id = "d383a1d5c0a779bbfd0a2b74437923d5", keyless = true }, -- Attack on Titan Revolution
-	["994732206"] = { id = "e2718ddebf562c5c4080dfce26b09398", keyless = false }, -- Blox Fruits
-	["5130394318"] = { id = "3e7a75a970118d0f0cf629369524dc7d", keyless = false }, -- Bizarre Lineage
-	["10475794799"] = { id = "7c9b5f90b8e6b7f89698e773feb9eac2", keyless = true }, -- Dig & Clean
-	["10440833423"] = { id = "19c44f6c67f0e82e45e456bf81646e01", keyless = true }, -- Greedy Growers
-	["10200395747"] = { id = "535322ccaa7a6ba59febea91b085c89c", keyless = true }, -- Grow a Garden 2
-	["648454481"] = { id = "6ef7ec6eab3760abd03bfc052cb622d5", keyless = true }, -- Grand Piece Online
-	["8342498724"] = { id = "98764f0bfbebe1fb1cc4bfd0d9758424", keyless = true }, -- Heavyweight Fishing
-	["3808223175"] = { id = "4fe2dfc202115670b1813277df916ab2", keyless = false }, -- Jujutsu Infinite
-	["10690360998"] = { id = "1785e877b45d97d240f194a5682e4d95", keyless = true }, -- Jump for Animals!
-	["66654135"] = { id = "1bc67a62ae73efe4babe9f2b6b7e4646", keyless = true }, -- Murder Mystery 2
-    ["7219654364"] = { id = "a5182e78f7af6810e08e05cb72542dbf", keyless = true }, -- Sheriff VS Murderer
-    ["5595353122"] = { id = "4ad5f50053184782fb6c828f5af721e8", keyless = true }, -- Slayers 2
-	["7395930870"] = { id = "d3191d52e71790d40a4d169f5becd325", keyless = true }, -- Sell Lemons
-	["1511883870"] = { id = "fefdf5088c44beb34ef52ed6b520507c", keyless = false }, -- Shindo Life
-	["10563114921"] = { id = "82f55d768183c258359d9a7c093d5a60", keyless = false } -- Steal An Egg
+	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits -- Polsec
+	["648454481"] = { id = "a873ec9f40a25c5c", keyless = true }, -- Grand Piece Online -- Polsec
+	["66654135"] = { id = "e45bba6c0dc08fad", keyless = true }, -- Murder Mystery 2 -- Polsec
+    ["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = true }, -- Sheriff VS Murderer -- Polsec
+    ["5595353122"] = { id = "3c7a8c8d16b1f6a9", keyless = true }, -- Slayers 2 -- Luarmor, not updated
+	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life -- Polsec
+	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false } -- Steal An Egg -- Polsec
+
 }
 
+local SdkUrl = "https://api.polsec.sh/sdk"
+local LoaderBase = "https://api.polsec.sh/loader"
+
 local Config = {
-	File = "solixhub/savedkey.txt",
-	Workink = "https://ads.luarmor.net/get_key?for=Solix_Hub_Linkvertise-OWlLHDMCHADk",
-	Rinku = "https://ads.luarmor.net/get_key?for=Solix_Hub_Rinku-pqJCGTqnTsng",
+	ProjectId = "7d45ec1510769529",
+	File = "solixhub/polsec/license.key.json",
+	KeyLink = "https://polsec.sh/ad/122919d73651e7dd",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
 
 local ErrorMessages = {
-	KEY_EXPIRED = "Your key ran out. Buy a new one for $1.99",
-	KEY_BANNED = "This key is banned. Join Discord for help.",
-	KEY_HWID_LOCKED = "Key used on another PC. Reset HWID in Discord.",
-	KEY_INCORRECT = "Wrong key. Check it and try again.",
-	KEY_INVALID = "That doesnt look like a key.",
-	SCRIPT_ID_INCORRECT = "Script not found.",
-	SCRIPT_ID_INVALID = "Script deleted.",
-	INVALID_EXECUTOR = "Your executor isnt supported.",
-	SECURITY_ERROR = "Something went wrong. Try again.",
-	TIME_ERROR = "Fix your PC clock and try again.",
-	UNKNOWN_ERROR = "Something broke. Join Discord for help.",
+	key_expired = "Your key is expired!",
+	key_blacklisted = "This key is banned. Join Discord for help.",
+	key_banned = "This key is banned. Join Discord for help.",
+	invalid_fingerprint = "HWID not valid! Reset HWID on the panel.",
+	key_hwid_locked = "HWID not valid! Reset HWID on the panel.",
+	hwid_mismatch = "HWID not valid! Reset HWID on the panel.",
+	invalid_key = "Wrong key. Check it and try again.",
+	key_incorrect = "Wrong key. Check it and try again.",
+	key_invalid = "That doesnt look like a key.",
+	invalid_script_id = "Script not found.",
+	script_id_incorrect = "Script not found.",
+	script_id_invalid = "Script deleted.",
+	invalid_executor = "Your executor isnt supported.",
+	security_error = "Something went wrong. Try again.",
+	time_error = "Fix your PC clock and try again.",
+	key_disabled = "This key is disabled. Join Discord for help.",
+	rate_limited = "Too many tries. Wait a bit and try again.",
+	error = "Something broke. Join Discord for help.",
+	unknown_error = "Something broke. Join Discord for help.",
+	enter_a_key = "Enter a key",
+	network_error = "Could not reach license server. Try again.",
 }
+
+if type(isfolder) == "function" and type(makefolder) == "function" then
+	if not isfolder("solixhub/polsec") then
+		pcall(makefolder, "solixhub/polsec")
+	end
+end
 
 local GameConfig = GameList[GameId]
 
@@ -107,6 +114,20 @@ end
 local ScriptId = GameConfig.id
 local IsKeyless = GameConfig.keyless
 
+local ProjectId = type(Config.ProjectId) == "string" and Config.ProjectId or ""
+if type(getgenv().PolSec_ProjectId) == "string" and getgenv().PolSec_ProjectId ~= "" then
+	ProjectId = getgenv().PolSec_ProjectId
+end
+
+if ProjectId == "" then
+	StarterGui:SetCore("SendNotification", {
+		Title = "Solix Hub",
+		Text = "Set Config.ProjectId to your PolSec project ID.",
+		Icon = "rbxassetid://137698471325689",
+	})
+	return
+end
+
 LowUnc = not (hookfunction and hookmetamethod)
 
 local function DeleteFile(Input)
@@ -115,14 +136,175 @@ local function DeleteFile(Input)
 	end
 end
 
-local LuarmorApi = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
-LuarmorApi.script_id = ScriptId
+local PolSec = loadstring(game:HttpGet(SdkUrl))()
+PolSec.script_id = ScriptId
 
-local LoaderUrl = "https://api.luarmor.net/files/v4/loaders/" .. ScriptId .. ".lua"
+local LoaderUrl = LoaderBase .. "/" .. ProjectId .. "/" .. ScriptId
+
+local function ReadJson(Path)
+	if not isfile or not readfile or not isfile(Path) then
+		return nil
+	end
+	local Ok, Raw = pcall(readfile, Path)
+	if not Ok or type(Raw) ~= "string" or Raw == "" then
+		return nil
+	end
+	local Decoded, Data = pcall(HttpService.JSONDecode, HttpService, Raw)
+	if not Decoded or type(Data) ~= "table" then
+		return nil
+	end
+	return Data
+end
+
+local function LoadSavedKey()
+	local LegacyPaths = {
+		"solixhub/savedkey.txt",
+		"solixhub/license_key.json",
+		"solixhub.com/polsec/license.key.json",
+	}
+	for Index = 1, #LegacyPaths do
+		local LegacyPath = LegacyPaths[Index]
+		if isfile and isfile(LegacyPath) and readfile then
+			local Ok, Raw = pcall(readfile, LegacyPath)
+			if Ok and type(Raw) == "string" and Raw:gsub("%s", "") ~= "" then
+				local Key
+				if Index ~= 1 then
+					local Decoded, Data = pcall(HttpService.JSONDecode, HttpService, Raw)
+					Key = Decoded and type(Data) == "table" and Data.key or nil
+				else
+					Key = Raw:gsub("^%s+", ""):gsub("%s+$", "")
+				end
+				if type(Key) == "string" and Key ~= "" then
+					pcall(writefile, Config.File, HttpService:JSONEncode({
+						key = Key,
+						saved_at = os.time(),
+					}))
+					pcall(delfile, LegacyPath)
+					return Key
+				end
+			end
+		end
+	end
+	local Data = ReadJson(Config.File)
+	if not Data or type(Data.key) ~= "string" or Data.key == "" then
+		return nil
+	end
+	local Expires = tonumber(Data.expires_at)
+	if Expires and Expires > 0 and Expires < os.time() then
+		DeleteFile(Config.File)
+		return nil
+	end
+	return Data.key
+end
+
+local function SaveKey(Key, Data)
+	if not writefile then
+		return
+	end
+	if type(isfolder) == "function" and type(makefolder) == "function" and not isfolder("solixhub/polsec") then
+		pcall(makefolder, "solixhub/polsec")
+	end
+	pcall(writefile, Config.File, HttpService:JSONEncode({
+		key = Key,
+		note = Data and Data.note or nil,
+		discord_id = Data and Data.discord_id or nil,
+		expires_at = Data and Data.expires_at or nil,
+		saved_at = os.time(),
+	}))
+end
+
+local function ApplyKey(Key, Data)
+	script_key = Key
+	getgenv().script_key = Key
+	getgenv().key = Key
+	getgenv().PolSec_Note = Data and Data.note or nil
+	getgenv().PolSec_Key_Note = Data and Data.note or nil
+	getgenv().PolSec_Expiry = Data and Data.expires_at or nil
+	getgenv().PolSec_UserId = Data and Data.discord_id or nil
+	getgenv().PolSec_Discord_Id = Data and Data.discord_id and tostring(Data.discord_id) or nil
+	getgenv().polsec_script_id = ScriptId
+	getgenv().key_expire = Data and Data.expires_at or 0
+	getgenv().key_note = Data and Data.note or ""
+	SaveKey(Key, Data)
+end
+
+local function LoadGame()
+	loadstring(game:HttpGet(LoaderUrl))()
+end
+
+local function PolSecErrorMessage(Status, Message, User)
+	local Code = type(Status) == "string" and string.lower(Status) or "unknown_error"
+	if ErrorMessages[Code] then
+		return ErrorMessages[Code]
+	end
+	if type(Message) == "string" and Message ~= "" then
+		local Lower = string.lower(Message)
+		if ErrorMessages[Lower] then
+			return ErrorMessages[Lower]
+		end
+	end
+	if type(User) == "table" and type(User.blacklist_reason) == "string" and User.blacklist_reason ~= "" then
+		return User.blacklist_reason
+	end
+	return ErrorMessages.unknown_error
+end
+
+local function CheckKey(Key)
+	Key = type(Key) == "string" and Key:gsub("^%s+", ""):gsub("%s+$", "") or ""
+	if Key == "" then
+		return false, ErrorMessages.enter_a_key
+	end
+	local Ok, Result = pcall(PolSec.check_key, Key)
+	if not Ok or type(Result) ~= "table" then
+		return false, ErrorMessages.network_error
+	end
+	if Result.status ~= "key_valid" then
+		local User = type(Result.user) == "table" and Result.user or nil
+		return false, PolSecErrorMessage(Result.status, Result.message, User)
+	end
+	local User = type(Result.user) == "table" and Result.user or {}
+	return true, {
+		note = User.note,
+		expires_at = User.key_expires,
+		discord_id = User.discord_id or User.discordId,
+		ad_key = User.ad_key == true,
+	}, Key
+end
 
 if IsKeyless then
-	loadstring(game:HttpGet(LoaderUrl))()
+	script_key = "trail"
+	getgenv().script_key = "trail"
+	getgenv().polsec_script_id = ScriptId
+	LoadGame()
 	return
+end
+
+local function TrySilent(Key)
+	local Ok, Data, Normalized = CheckKey(Key)
+	if not Ok then
+		return false
+	end
+	ApplyKey(Normalized, Data)
+	LoadGame()
+	return true
+end
+
+local SavedInitial = LoadSavedKey()
+local Initial = getgenv().script_key
+if type(Initial) ~= "string" or Initial == "" then
+	Initial = script_key
+end
+if type(Initial) ~= "string" or Initial == "" then
+	Initial = SavedInitial
+end
+
+if type(Initial) == "string" and Initial ~= "" then
+	if TrySilent(Initial) then
+		return
+	end
+	if SavedInitial and Initial == SavedInitial then
+		DeleteFile(Config.File)
+	end
 end
 
 do
@@ -765,87 +947,6 @@ do
 
 	local panel_h = row2_y + btn_h + pad
 
-	local popup_w = 280
-	local popup_inner = popup_w - pad * 2
-	local popup_btn1_y = pad + 28
-	local popup_btn2_y = popup_btn1_y + btn_h + btn_gap
-	local popup_h = popup_btn2_y + btn_h + pad
-	local popup_open = false
-
-	local KeyPopup = Create("Frame", {
-		Parent = ScreenGui,
-		Size = UDim2New(1, 0, 1, 0),
-		BackgroundColor3 = FromRGB(0, 0, 0),
-		BackgroundTransparency = 1,
-		Visible = false,
-		BorderSizePixel = 0,
-		ZIndex = 20,
-	})
-
-	local OverlayBtn = Create("TextButton", {
-		Parent = KeyPopup,
-		Size = UDim2New(1, 0, 1, 0),
-		BackgroundTransparency = 1,
-		Text = "",
-		AutoButtonColor = false,
-		ZIndex = 20,
-	})
-
-	local PopupPanel = Create("Frame", {
-		Parent = KeyPopup,
-		Size = UDim2New(0, 0, 0, 0),
-		Position = UDim2New(0.5, 0, 0.5, 0),
-		AnchorPoint = Vector2New(0.5, 0.5),
-		BackgroundColor3 = Theme.Background,
-		BackgroundTransparency = 0,
-		BorderSizePixel = 0,
-		ClipsDescendants = true,
-		ZIndex = 21,
-	})
-	Corner(PopupPanel, 5)
-	local PopupStroke = Stroke(PopupPanel, Theme.Border, 1)
-
-	Create("TextLabel", {
-		Parent = PopupPanel,
-		Size = UDim2New(1, -(pad * 2), 0, 20),
-		Position = UDim2New(0, pad, 0, pad),
-		BackgroundTransparency = 1,
-		Text = "Get Key",
-		TextColor3 = Theme.Text,
-		TextSize = title_size,
-		FontFace = FontFace,
-		TextXAlignment = Enum.TextXAlignment.Left,
-		ZIndex = 22,
-	})
-
-	local function MakePopupBtn(text, y)
-		local btn = Create("TextButton", {
-			Parent = PopupPanel,
-			Size = UDim2New(0, popup_inner, 0, btn_h),
-			Position = UDim2New(0, pad, 0, y),
-			BackgroundColor3 = Theme.Element,
-			BorderSizePixel = 0,
-			Text = text,
-			TextColor3 = Theme.Text,
-			TextSize = btn_text,
-			FontFace = FontFace,
-			AutoButtonColor = false,
-			ZIndex = 22,
-		})
-		Corner(btn, 5)
-		Stroke(btn, Theme.Border, 0.35)
-		btn.MouseEnter:Connect(function()
-			Tween(btn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Inline })
-		end)
-		btn.MouseLeave:Connect(function()
-			Tween(btn, TweenInfo.new(0.12), { BackgroundColor3 = Theme.Element })
-		end)
-		return btn
-	end
-
-	local LinkvertiseBtn = MakePopupBtn("Linkvertise", popup_btn1_y)
-	local RinkuBtn = MakePopupBtn("Rinku", popup_btn2_y)
-
 	do
 		local dragging, drag_start, start_pos, changed
 
@@ -918,43 +1019,11 @@ do
 		end
 	end
 
-	local function HideKeyPopup()
-		if not popup_open then
-			return
-		end
-		popup_open = false
-		Tween(KeyPopup, tween_data, { BackgroundTransparency = 1 })
-		Tween(PopupStroke, tween_data, { Transparency = 1 })
-		Tween(PopupPanel, tween_data, { Size = UDim2New(0, 0, 0, 0) })
-		wait(0.22)
-		if not popup_open then
-			KeyPopup.Visible = false
-		end
-	end
-
-	local function ShowKeyPopup()
-		if closed or popup_open then
-			return
-		end
-		popup_open = true
-		KeyPopup.Visible = true
-		PopupStroke.Transparency = 1
-		PopupPanel.Size = UDim2New(0, 0, 0, 0)
-		KeyPopup.BackgroundTransparency = 1
-		Tween(KeyPopup, fade_in, { BackgroundTransparency = 0.45 })
-		Tween(PopupStroke, fade_in, { Transparency = 0.2 })
-		Tween(PopupPanel, TweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-			Size = UDim2New(0, popup_w, 0, popup_h),
-		})
-	end
-
 	local function CloseUI()
 		if closed then
 			return
 		end
 		closed = true
-		popup_open = false
-		KeyPopup.Visible = false
 		Tween(MainStroke, tween_data, { Transparency = 1 })
 		Tween(CloseBtn, tween_data, { ImageTransparency = 1 })
 		set_fade(1)
@@ -996,78 +1065,45 @@ do
 			return false
 		end
 
-		local cleaned = key:gsub("%s", "")
 		local from_saved = opts.from_saved == true
-
-		if not string.match(cleaned, "^[A-Za-z0-9]+$") or #cleaned ~= 32 then
-			if from_saved then
-				DeleteFile(Config.File)
-			end
-			Notify({
-				Title = "Solix Hub",
-				Description = "That key looks wrong. It should be 32 letters/numbers.",
-				Duration = 5,
-			})
-			return false, "format"
-		end
 
 		validating = true
 		set_continue("Checking...", false)
-		local success, result = pcall(LuarmorApi.check_key, cleaned)
+		local ok, data_or_err, normalized = CheckKey(key)
 
 		if closed then
 			validating = false
 			return false, "closed"
 		end
 
-		if not success or type(result) ~= "table" then
+		if not ok then
 			validating = false
 			set_continue("Continue", true)
-			Notify({
-				Title = "Solix Hub",
-				Description = "Couldnt check key. Try again.",
-				Duration = 4,
-			})
-			return false, "network"
-		end
-
-		if result.code == "KEY_VALID" then
-			script_key = cleaned
-			pcall(writefile, Config.File, cleaned)
-
-			getgenv().key = cleaned
-			getgenv().luarmor_api = LuarmorApi
-			getgenv().key_expire = result.data and result.data.auth_expire or 0
-			getgenv().key_note = result.data and result.data.note or ""
-			getgenv().key_executions = result.data and result.data.total_executions or 0
-
-			set_continue("Loading...", false)
-			Notify({
-				Title = "Solix Hub",
-				Description = "Key works. Time left: " .. ToTime(getgenv().key_expire),
-				Duration = 4,
-			})
-
-			CloseUI()
-			wait(0.03)
-			loadstring(game:HttpGet(LoaderUrl))()
-			return true
-		end
-
-		validating = false
-		set_continue("Continue", true)
-		if from_saved or isfile(Config.File) then
-			local saved = isfile(Config.File) and readfile(Config.File)
-			if from_saved or (type(saved) == "string" and saved:gsub("%s", "") == cleaned) then
+			if from_saved then
 				DeleteFile(Config.File)
 			end
+			Notify({
+				Title = "Solix Hub",
+				Description = tostring(data_or_err),
+				Duration = 5,
+			})
+			return false, "invalid"
 		end
+
+		ApplyKey(normalized, data_or_err)
+
+		set_continue("Loading...", false)
 		Notify({
 			Title = "Solix Hub",
-			Description = ErrorMessages[result.code] or result.message or "Key check failed.",
-			Duration = 5,
+			Description = "Key works. Time left: " .. ToTime(data_or_err.expires_at),
+			Duration = 4,
 		})
-		return false, "invalid"
+
+		CloseUI()
+		wait(0.03)
+		LoadGame()
+		validating = false
+		return true
 	end
 
 	local function try_submit()
@@ -1105,29 +1141,11 @@ do
 		end
 	end)
 
-	KeyInput:GetPropertyChangedSignal("Text"):Connect(function()
-		local cleaned = KeyInput.Text:gsub("%s", "")
-		if #cleaned == 32 and string.match(cleaned, "^[A-Za-z0-9]+$") then
-			try_submit()
-		end
-	end)
 
 	ContinueBtn.MouseButton1Click:Connect(try_submit)
 
-	GetKeyBtn.MouseButton1Click:Connect(ShowKeyPopup)
-
-	OverlayBtn.MouseButton1Click:Connect(function()
-		spawn(HideKeyPopup)
-	end)
-
-	LinkvertiseBtn.MouseButton1Click:Connect(function()
-		CopyLink(Config.Workink, "Linkvertise link copied. Paste it in your browser.")
-		spawn(HideKeyPopup)
-	end)
-
-	RinkuBtn.MouseButton1Click:Connect(function()
-		CopyLink(Config.Rinku, "Rinku link copied. Paste it in your browser.")
-		spawn(HideKeyPopup)
+	GetKeyBtn.MouseButton1Click:Connect(function()
+		CopyLink(Config.KeyLink, "Key link copied. Paste it in your browser.")
 	end)
 
 	DiscordBtn.MouseButton1Click:Connect(function()
@@ -1195,10 +1213,8 @@ do
 		if closed or validating then
 			return
 		end
-		local from_file = isfile(Config.File) and readfile(Config.File)
-		local saved = from_file or (script_key ~= nil and script_key ~= "" and script_key) or nil
-		if saved then
-			ValidateKey(saved, { from_saved = from_file and true or false })
+		if type(Initial) == "string" and Initial ~= "" then
+			KeyInput.Text = Initial
 		end
 	end)
 end
