@@ -52,8 +52,8 @@ local GameList = {
 	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits -- Polsec
 	["648454481"] = { id = "a873ec9f40a25c5c", keyless = true }, -- Grand Piece Online -- Polsec
 	["66654135"] = { id = "e45bba6c0dc08fad", keyless = true }, -- Murder Mystery 2 -- Polsec
-    ["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = true }, -- Sheriff VS Murderer -- Polsec
-    ["5595353122"] = { id = "3c7a8c8d16b1f6a9", keyless = true }, -- Slayers 2 -- Luarmor, not updated
+    ["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = false }, -- Sheriff VS Murderer -- Polsec
+    ["5595353122"] = { id = "3c7a8c8d16b1f6a9", keyless = false }, -- Project Slayer 2 -- Polsec
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life -- Polsec
 	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false } -- Steal An Egg -- Polsec
 
@@ -64,6 +64,7 @@ local LoaderBase = "https://api.polsec.sh/loader"
 
 local Config = {
 	ProjectId = "7d45ec1510769529",
+	CheckScriptId = "122919d73651e7dd",
 	File = "solixhub/polsec/license.key.json",
 	KeyLink = "https://polsec.sh/ad/122919d73651e7dd",
 	Discord = "https://discord.gg/solixhub",
@@ -137,7 +138,8 @@ local function DeleteFile(Input)
 end
 
 local PolSec = loadstring(game:HttpGet(SdkUrl))()
-PolSec.script_id = ScriptId
+local CheckScriptId = type(Config.CheckScriptId) == "string" and Config.CheckScriptId ~= "" and Config.CheckScriptId or ScriptId
+PolSec.script_id = CheckScriptId
 
 local LoaderUrl = LoaderBase .. "/" .. ProjectId .. "/" .. ScriptId
 
