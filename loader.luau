@@ -66,7 +66,7 @@ local Config = {
 	ProjectId = "7d45ec1510769529",
 	CheckScriptId = "122919d73651e7dd",
 	File = "solixhub/polsec/license.key.json",
-	KeyLink = "https://polsec.sh/ad/122919d73651e7dd",
+	KeyLink = "https://solixhub.com/free/get-key/",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
