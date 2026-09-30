@@ -49,13 +49,14 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
-	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits 
-	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online 
-	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2
-	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg 
-	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life 
-	["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = false }, -- Sheriff VS Murderer 
-	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false } -- Slayers 2
+	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits -- Polsec
+	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online -- Polsec
+	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2 -- Polsec
+    ["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = false }, -- Sheriff VS Murderer -- Polsec
+	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2 -- Polsec
+	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life -- Polsec
+	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false } -- Steal An Egg -- Polsec
+
 }
 
 local SdkUrl = "https://api.polsec.sh/sdk"
@@ -63,7 +64,6 @@ local LoaderBase = "https://api.polsec.sh/loader"
 
 local Config = {
 	ProjectId = "7d45ec1510769529",
-	CheckScriptId = "122919d73651e7dd",
 	File = "solixhub/polsec/license.key.json",
 	KeyLink = "https://solixhub.com/free/get-key/",
 	Discord = "https://discord.gg/solixhub",
@@ -137,8 +137,7 @@ local function DeleteFile(Input)
 end
 
 local PolSec = loadstring(game:HttpGet(SdkUrl))()
-local CheckScriptId = type(Config.CheckScriptId) == "string" and Config.CheckScriptId ~= "" and Config.CheckScriptId or ScriptId
-PolSec.script_id = CheckScriptId
+PolSec.script_id = ScriptId
 
 local LoaderUrl = LoaderBase .. "/" .. ProjectId .. "/" .. ScriptId
 
