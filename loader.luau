@@ -107,7 +107,7 @@ if not GameConfig then
 	StarterGui:SetCore("SendNotification", {
 		Title = "Solix Hub",
 		Text = "This game is not supported.",
-		Icon = "rbxassetid://137698471325689",
+		Icon = "rbxassetid://103638617992222",
 	})
 	return
 end
