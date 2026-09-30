@@ -53,7 +53,7 @@ local GameList = {
 	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online -- Polsec
 	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2 -- Polsec
     ["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = false }, -- Sheriff VS Murderer -- Polsec
-	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2 -- Polsec
+	--["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2 -- Polsec
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life -- Polsec
 	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false } -- Steal An Egg -- Polsec
 
