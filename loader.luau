@@ -124,7 +124,7 @@ if ProjectId == "" then
 	StarterGui:SetCore("SendNotification", {
 		Title = "Solix Hub",
 		Text = "Set Config.ProjectId to your PolSec project ID.",
-		Icon = "rbxassetid://137698471325689",
+		Icon = "rbxassetid://103638617992222",
 	})
 	return
 end
