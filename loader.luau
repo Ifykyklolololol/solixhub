@@ -271,6 +271,41 @@ local function CheckKey(Key)
 	}, Key
 end
 
+local AttributionUrl = "https://solixhub.com/api/free-key/first-game"
+
+local function ReportFirstGame(Key)
+	pcall(function()
+		local Body = HttpService:JSONEncode({
+			key = Key,
+			gameId = tostring(game.GameId),
+			placeId = tostring(game.PlaceId),
+			scriptId = ScriptId,
+		})
+		if typeof(request) == "function" then
+			request({
+				Url = AttributionUrl,
+				Method = "POST",
+				Headers = { ["Content-Type"] = "application/json" },
+				Body = Body,
+			})
+		elseif typeof(http_request) == "function" then
+			http_request({
+				Url = AttributionUrl,
+				Method = "POST",
+				Headers = { ["Content-Type"] = "application/json" },
+				Body = Body,
+			})
+		elseif typeof(syn) == "table" and typeof(syn.request) == "function" then
+			syn.request({
+				Url = AttributionUrl,
+				Method = "POST",
+				Headers = { ["Content-Type"] = "application/json" },
+				Body = Body,
+			})
+		end
+	end)
+end
+
 if IsKeyless then
 	script_key = "trail"
 	getgenv().script_key = "trail"
@@ -280,6 +315,7 @@ if IsKeyless then
 end
 
 local function TrySilent(Key)
+	ReportFirstGame(Key)
 	local Ok, Data, Normalized = CheckKey(Key)
 	if not Ok then
 		return false
@@ -1069,6 +1105,7 @@ do
 
 		validating = true
 		set_continue("Checking...", false)
+		ReportFirstGame(key)
 		local ok, data_or_err, normalized = CheckKey(key)
 
 		if closed then
