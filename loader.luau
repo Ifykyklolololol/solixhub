@@ -60,8 +60,8 @@ local GameList = {
    	["10035204815"] = { id = "85a577643f806078", keyless = false } -- Ride A Pet
 }
 
-local SdkUrl = "https://api.polsec.sh/sdk"
-local LoaderBase = "https://api.polsec.sh/loader"
+local SdkUrl = "https://api.polsec.net/sdk"
+local LoaderBase = "https://api.polsec.net/loader"
 
 local Config = {
 	ProjectId = "7d45ec1510769529",
