@@ -49,6 +49,7 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
+    ["10512942223"] = { id = "578395010f8c4716", keyless = false }, -- Anime Zero
 	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits 
 	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online 
 	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2
