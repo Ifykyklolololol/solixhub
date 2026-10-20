@@ -58,7 +58,8 @@ local GameList = {
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
 	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg
     ["6035872082"] = { id = "9d318b57c43ebd9d", keyless = false }, -- Rivals
-   	["10035204815"] = { id = "85a577643f806078", keyless = false } -- Ride A Pet
+   	["10035204815"] = { id = "85a577643f806078", keyless = false }, -- Ride A Pet
+	["4777817887"] = { id = "cf1e81c5fb14d3bc", keyless = false }, -- Blade Ball
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
