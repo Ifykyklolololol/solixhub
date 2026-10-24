@@ -53,7 +53,7 @@ local GameList = {
 	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits 
 	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online 
 	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2
-    ["7219654364"] = { id = "40ae7ebdcf5a8d40", keyless = false }, -- Sheriff VS Murderer 
+    ["7219654364"] = { id = "b056f96b43a4a4e2", keyless = false }, -- Sheriff VS Murderer 
 	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2 
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
 	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg
