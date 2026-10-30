@@ -61,6 +61,7 @@ local GameList = {
    	["10035204815"] = { id = "85a577643f806078", keyless = false }, -- Ride A Pet
 	["4777817887"] = { id = "cf1e81c5fb14d3bc", keyless = false }, -- Blade Ball
     ["10767386157"] = { id = "22068f1924bfbd48", keyless = false }, -- Chop A Forest
+    ["10769957062"] = { id = "f7a5694f13d13f89", keyless = false }, -- Bug Evolution
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
