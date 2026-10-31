@@ -49,20 +49,21 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
-    ["10512942223"] = { id = "578395010f8c4716", keyless = false }, -- Anime Zero
-	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits 
-	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online 
-	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2
-    ["7219654364"] = { id = "b056f96b43a4a4e2", keyless = false }, -- Sheriff VS Murderer 
-	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2 
-	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
-	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg
-    ["6035872082"] = { id = "9d318b57c43ebd9d", keyless = false }, -- Rivals
-   	["10035204815"] = { id = "85a577643f806078", keyless = false }, -- Ride A Pet
+	["578392296"] = { id = "9c36af272e9edcab", keyless = false }, -- ABA
+	["10512942223"] = { id = "578395010f8c4716", keyless = false }, -- Anime Zero
 	["4777817887"] = { id = "cf1e81c5fb14d3bc", keyless = false }, -- Blade Ball
-    ["10767386157"] = { id = "22068f1924bfbd48", keyless = false }, -- Chop A Forest
-    ["10769957062"] = { id = "f7a5694f13d13f89", keyless = false }, -- Bug Evolution
-    ["578392296"] = { id = "9c36af272e9edcab", keyless = false }, -- ABA
+	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits
+	["10769957062"] = { id = "f7a5694f13d13f89", keyless = false }, -- Bug Evolution
+	["10767386157"] = { id = "22068f1924bfbd48", keyless = false }, -- Chop A Forest
+	["10767634248"] = { id = "41dd482b4e67a744", keyless = false }, -- Firefighting Sim
+	["648454481"] = { id = "a873ec9f40a25c5c", keyless = false }, -- Grand Piece Online
+	["66654135"] = { id = "e45bba6c0dc08fad", keyless = false }, -- Murder Mystery 2
+	["10035204815"] = { id = "85a577643f806078", keyless = false }, -- Ride A Pet
+	["6035872082"] = { id = "9d318b57c43ebd9d", keyless = false }, -- Rivals
+	["7219654364"] = { id = "b056f96b43a4a4e2", keyless = false }, -- Sheriff VS Murderer
+	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
+	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2
+	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
