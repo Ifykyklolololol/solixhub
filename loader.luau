@@ -65,7 +65,7 @@ local GameList = {
 	["7219654364"] = { id = "b056f96b43a4a4e2", keyless = false }, -- Sheriff VS Murderer
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
 	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2
-	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg
+	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false } -- Steal An Egg
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
