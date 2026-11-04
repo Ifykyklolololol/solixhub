@@ -53,6 +53,7 @@ local GameList = {
 	["578392296"] = { id = "9c36af272e9edcab", keyless = false }, -- ABA
 	["10770933473"] = { id = "570960567ae9ee68", keyless = false }, -- Anime Eyes
 	["10512942223"] = { id = "578395010f8c4716", keyless = false }, -- Anime Zero
+	["4658598196"] = { id = "086646721d0da59e", keyless = false }, -- Attack on Titan Revolution
 	["4777817887"] = { id = "cf1e81c5fb14d3bc", keyless = false }, -- Blade Ball
 	["994732206"] = { id = "ce2e40f0bc2b1720", keyless = false }, -- Blox Fruits
 	["10769957062"] = { id = "f7a5694f13d13f89", keyless = false }, -- Bug Evolution
