@@ -67,6 +67,9 @@ local GameList = {
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
 	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2
 	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false } -- Steal An Egg
+    ["1946714362"] = { id = "2f231342cca70549", keyless = false } -- Bloodlines
+
+
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
