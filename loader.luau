@@ -102,7 +102,7 @@ local LoaderBase = "https://api.polsec.net/loader"
 local Config = {
 	ProjectId = "7d45ec1510769529",
 	File = "solixhub/polsec/license.key.json",
-	KeyLink = "https://solixhub.com/free/get-key/",
+	KeyLink = "https://rekonise.com/get-key-3jvuo",
 	Discord = "https://discord.gg/solixhub",
 	Shop = "https://solixhub.com/free",
 }
