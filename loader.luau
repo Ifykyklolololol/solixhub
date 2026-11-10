@@ -67,7 +67,31 @@ local GameList = {
 	["1511883870"] = { id = "5ac16739ff2ef735", keyless = false }, -- Shindo Life
 	["5595353122"] = { id = "d7305ba1bbb3bd7b", keyless = false }, -- Slayers 2
 	["10563114921"] = { id = "d3b0a2eaf4a1522a", keyless = false }, -- Steal An Egg
-    ["1946714362"] = { id = "2f231342cca70549", keyless = false } -- Bloodlines
+	["1946714362"] = { id = "2f231342cca70549", keyless = false }, -- Bloodlines
+
+	-- Universal Games
+	["504035427"] = { id = "52eedbdc867c3387", keyless = false }, -- Zombie Attack
+	["111958650"] = { id = "52eedbdc867c3387", keyless = false }, -- Arsenal
+	["10769552054"] = { id = "52eedbdc867c3387", keyless = false }, -- Urban Reload
+	["10769850944"] = { id = "52eedbdc867c3387", keyless = false }, -- KOBALT / DROPZONE
+	["73885730"] = { id = "52eedbdc867c3387", keyless = false }, -- Prison Life
+	["6765805766"] = { id = "52eedbdc867c3387", keyless = false }, -- BlockSpin
+	["5091490171"] = { id = "52eedbdc867c3387", keyless = false }, -- Jailbird
+	["4750561026"] = { id = "52eedbdc867c3387", keyless = false }, -- Cold War
+	["10767708641"] = { id = "52eedbdc867c3387", keyless = false }, -- Pistol Duels
+	["6993600665"] = { id = "52eedbdc867c3387", keyless = false }, -- Defusal
+	["10750223358"] = { id = "52eedbdc867c3387", keyless = false }, -- ZHD
+	["5000084391"] = { id = "52eedbdc867c3387", keyless = false }, -- Decay
+	["1281592938"] = { id = "52eedbdc867c3387", keyless = false }, -- ENTRENCHED
+	["8468366390"] = { id = "52eedbdc867c3387", keyless = false }, -- Infected Lands
+	["3021395192"] = { id = "52eedbdc867c3387", keyless = false }, -- RiotFall
+	["6583326485"] = { id = "52eedbdc867c3387", keyless = false }, -- Ground War
+	["5995470825"] = { id = "52eedbdc867c3387", keyless = false }, -- Hypershot
+	["9534705677"] = { id = "52eedbdc867c3387", keyless = false }, -- Arcade
+	["10138624079"] = { id = "52eedbdc867c3387", keyless = false }, -- Arena
+	["9294074907"] = { id = "52eedbdc867c3387", keyless = false }, -- [FPS] One Tap
+	["10057403337"] = { id = "52eedbdc867c3387", keyless = false }, -- Deagle Arena
+	["7633926880"] = { id = "52eedbdc867c3387", keyless = false }, -- BloxStrike
 
 
 }
