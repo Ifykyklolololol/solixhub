@@ -154,7 +154,6 @@ local function CacheFont(Input1, Input2)
 end
 
 local GameList = {
-	["10771997908"] = { Id = "bab92ead754b2d2e", Keyless = false }, -- +1 Spider Arm
 	["578392296"] = { Id = "9c36af272e9edcab", Keyless = false }, -- ABA
 	["10770933473"] = { Id = "570960567ae9ee68", Keyless = false }, -- Anime Eyes
 	["10512942223"] = { Id = "578395010f8c4716", Keyless = false }, -- Anime Zero
@@ -163,7 +162,6 @@ local GameList = {
 	["994732206"] = { Id = "ce2e40f0bc2b1720", Keyless = false }, -- Blox Fruits
 	["10769957062"] = { Id = "f7a5694f13d13f89", Keyless = false }, -- Bug Evolution
 	["10767386157"] = { Id = "22068f1924bfbd48", Keyless = false }, -- Chop A Forest
-	["10767634248"] = { Id = "41dd482b4e67a744", Keyless = false }, -- Firefighting Sim
 	["648454481"] = { Id = "a873ec9f40a25c5c", Keyless = false }, -- Grand Piece Online
 	["66654135"] = { Id = "e45bba6c0dc08fad", Keyless = false }, -- Murder Mystery 2
 	["10035204815"] = { Id = "85a577643f806078", Keyless = false }, -- Ride A Pet
