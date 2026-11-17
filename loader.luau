@@ -154,12 +154,14 @@ local function CacheFont(Input1, Input2)
 end
 
 local GameList = {
+	-- Normal Games
 	["578392296"] = { Id = "9c36af272e9edcab", Keyless = false }, -- ABA
 	["10770933473"] = { Id = "570960567ae9ee68", Keyless = false }, -- Anime Eyes
 	["10512942223"] = { Id = "578395010f8c4716", Keyless = false }, -- Anime Zero
 	["4658598196"] = { Id = "086646721d0da59e", Keyless = false }, -- Attack on Titan Revolution
 	["4777817887"] = { Id = "cf1e81c5fb14d3bc", Keyless = false }, -- Blade Ball
 	["994732206"] = { Id = "ce2e40f0bc2b1720", Keyless = false }, -- Blox Fruits
+	["1946714362"] = { Id = "2f231342cca70549", Keyless = false }, -- Bloodlines
 	["10769957062"] = { Id = "f7a5694f13d13f89", Keyless = false }, -- Bug Evolution
 	["10767386157"] = { Id = "22068f1924bfbd48", Keyless = false }, -- Chop A Forest
 	["648454481"] = { Id = "a873ec9f40a25c5c", Keyless = false }, -- Grand Piece Online
@@ -170,31 +172,29 @@ local GameList = {
 	["1511883870"] = { Id = "5ac16739ff2ef735", Keyless = false }, -- Shindo Life
 	["5595353122"] = { Id = "d7305ba1bbb3bd7b", Keyless = false }, -- Slayers 2
 	["10563114921"] = { Id = "d3b0a2eaf4a1522a", Keyless = false }, -- Steal An Egg
-	["1946714362"] = { Id = "2f231342cca70549", Keyless = false }, -- Bloodlines
+	["7174773198"] = { Id = "1a0dbcb0cbb0b955", Keyless = false }, -- Vox Seas
 
 	-- Universal Games
-	["504035427"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Zombie Attack
-	["111958650"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arsenal
-	["10769552054"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Urban Reload
-	["10769850944"] = { Id = "52eedbdc867c3387", Keyless = false }, -- KOBALT / DROPZONE
-	["73885730"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Prison Life
-	["6765805766"] = { Id = "52eedbdc867c3387", Keyless = false }, -- BlockSpin
-	["5091490171"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Jailbird
-	["4750561026"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Cold War
-	["10767708641"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Pistol Duels
-	["6993600665"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Defusal
-	["10750223358"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ZHD
-	["5000084391"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Decay
-	["1281592938"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ENTRENCHED
-	["8468366390"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Infected Lands
-	["3021395192"] = { Id = "52eedbdc867c3387", Keyless = false }, -- RiotFall
-	["6583326485"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Ground War
-	["5995470825"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Hypershot
 	["9534705677"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arcade
 	["10138624079"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arena
-	["9294074907"] = { Id = "52eedbdc867c3387", Keyless = false }, -- [FPS] One Tap
+	["111958650"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arsenal
+	["6765805766"] = { Id = "52eedbdc867c3387", Keyless = false }, -- BlockSpin
 	["10057403337"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Deagle Arena
-	["7633926880"] = { Id = "52eedbdc867c3387", Keyless = false }, -- BloxStrike
+	["5000084391"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Decay
+	["6993600665"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Defusal
+	["1281592938"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ENTRENCHED
+	["6583326485"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Ground War
+	["5995470825"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Hypershot
+	["5091490171"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Jailbird
+	["10769850944"] = { Id = "52eedbdc867c3387", Keyless = false }, -- KOBALT / DROPZONE
+	["10767708641"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Pistol Duels
+	["73885730"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Prison Life
+	["3021395192"] = { Id = "52eedbdc867c3387", Keyless = false }, -- RiotFall
+	["9294074907"] = { Id = "52eedbdc867c3387", Keyless = false }, -- [FPS] One Tap
+	["4750561026"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Cold War
+	["10769552054"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Urban Reload
+	["10750223358"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ZHD
+	["504035427"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Zombie Attack
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
