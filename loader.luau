@@ -154,16 +154,16 @@ local function CacheFont(Input1, Input2)
 end
 
 local GameList = {
-	-- Normal Games
+	["10771997908"] = { Id = "bab92ead754b2d2e", Keyless = false }, -- +1 Spider Arm
 	["578392296"] = { Id = "9c36af272e9edcab", Keyless = false }, -- ABA
 	["10770933473"] = { Id = "570960567ae9ee68", Keyless = false }, -- Anime Eyes
 	["10512942223"] = { Id = "578395010f8c4716", Keyless = false }, -- Anime Zero
 	["4658598196"] = { Id = "086646721d0da59e", Keyless = false }, -- Attack on Titan Revolution
 	["4777817887"] = { Id = "cf1e81c5fb14d3bc", Keyless = false }, -- Blade Ball
 	["994732206"] = { Id = "ce2e40f0bc2b1720", Keyless = false }, -- Blox Fruits
-	["1946714362"] = { Id = "2f231342cca70549", Keyless = false }, -- Bloodlines
 	["10769957062"] = { Id = "f7a5694f13d13f89", Keyless = false }, -- Bug Evolution
 	["10767386157"] = { Id = "22068f1924bfbd48", Keyless = false }, -- Chop A Forest
+	["10767634248"] = { Id = "41dd482b4e67a744", Keyless = false }, -- Firefighting Sim
 	["648454481"] = { Id = "a873ec9f40a25c5c", Keyless = false }, -- Grand Piece Online
 	["66654135"] = { Id = "e45bba6c0dc08fad", Keyless = false }, -- Murder Mystery 2
 	["10035204815"] = { Id = "85a577643f806078", Keyless = false }, -- Ride A Pet
@@ -172,30 +172,31 @@ local GameList = {
 	["1511883870"] = { Id = "5ac16739ff2ef735", Keyless = false }, -- Shindo Life
 	["5595353122"] = { Id = "d7305ba1bbb3bd7b", Keyless = false }, -- Slayers 2
 	["10563114921"] = { Id = "d3b0a2eaf4a1522a", Keyless = false }, -- Steal An Egg
-	["7174773198"] = { Id = "1a0dbcb0cbb0b955", Keyless = false }, -- Vox Seas
-    ["1451439645"] = { Id = "0175e216221387f8", Keyless = false }, -- King legacy
+	["1946714362"] = { Id = "2f231342cca70549", Keyless = false }, -- Bloodlines
 
 	-- Universal Games
-	["9534705677"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arcade
-	["10138624079"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arena
+	["504035427"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Zombie Attack
 	["111958650"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arsenal
+	["10769552054"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Urban Reload
+	["10769850944"] = { Id = "52eedbdc867c3387", Keyless = false }, -- KOBALT / DROPZONE
+	["73885730"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Prison Life
 	["6765805766"] = { Id = "52eedbdc867c3387", Keyless = false }, -- BlockSpin
-	["10057403337"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Deagle Arena
-	["5000084391"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Decay
+	["5091490171"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Jailbird
+	["4750561026"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Cold War
+	["10767708641"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Pistol Duels
 	["6993600665"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Defusal
+	["10750223358"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ZHD
+	["5000084391"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Decay
 	["1281592938"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ENTRENCHED
+	["8468366390"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Infected Lands
+	["3021395192"] = { Id = "52eedbdc867c3387", Keyless = false }, -- RiotFall
 	["6583326485"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Ground War
 	["5995470825"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Hypershot
-	["5091490171"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Jailbird
-	["10769850944"] = { Id = "52eedbdc867c3387", Keyless = false }, -- KOBALT / DROPZONE
-	["10767708641"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Pistol Duels
-	["73885730"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Prison Life
-	["3021395192"] = { Id = "52eedbdc867c3387", Keyless = false }, -- RiotFall
+	["9534705677"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arcade
+	["10138624079"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arena
 	["9294074907"] = { Id = "52eedbdc867c3387", Keyless = false }, -- [FPS] One Tap
-	["4750561026"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Cold War
-	["10769552054"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Urban Reload
-	["10750223358"] = { Id = "52eedbdc867c3387", Keyless = false }, -- ZHD
-	["504035427"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Zombie Attack
+	["10057403337"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Deagle Arena
+	["7633926880"] = { Id = "52eedbdc867c3387", Keyless = false }, -- BloxStrike
 }
 
 local SdkUrl = "https://api.polsec.net/sdk"
@@ -1174,12 +1175,18 @@ end
 
 NotificationOnly = false
 
-local PanelWidth = 360
-local Padding = IsMobile and 12 or 16
-local ButtonHeight = IsMobile and 44 or 36
+local PanelWidth = 432
+local Padding = 16
+local Gap = 10
+local HeaderHeight = 56
+local InputHeight = 46
+local ButtonHeight = 44
 local ContentWidth = PanelWidth - Padding * 2
-local HalfWidth = (ContentWidth - 10) / 2
-local PanelHeight = IsMobile and 300 or 282
+local HalfWidth = (ContentWidth - Gap) / 2
+local InputY = HeaderHeight + Padding
+local FirstButtonY = InputY + InputHeight + 12
+local SecondButtonY = FirstButtonY + ButtonHeight + Gap
+local PanelHeight = SecondButtonY + ButtonHeight + Padding
 
 local Main = Instances:Create("CanvasGroup", {
 	Parent = ScreenGui.Instance,
@@ -1191,21 +1198,26 @@ local Main = Instances:Create("CanvasGroup", {
 })
 Box(Main, true)
 
-local Scale = Instances:Create("UIScale", {Parent = Main.Instance, Scale = 1})
+local Scale = Instances:Create("UIScale", {
+	Parent = Main.Instance,
+	Scale = math.min(1, (GetAvailableSize().X - 24) / PanelWidth, (GetAvailableSize().Y - 24) / PanelHeight),
+})
 
 local Header = Instances:Create("Frame", {
 	Parent = Main.Instance,
 	Active = true,
 	BackgroundTransparency = 1,
-	Position = UDim2.fromOffset(Padding, Padding),
-	Size = UDim2.new(1, -Padding * 2, 0, 40),
+	Position = UDim2.fromOffset(Padding, 12),
+	Size = UDim2.new(1, -Padding * 2, 0, 44),
 })
 
 local LogoAssets = GetLogoAssets()
 local Logo = Instances:Create("ImageLabel", {
 	Parent = Header.Instance,
 	BackgroundTransparency = 1,
-	Size = UDim2.fromOffset(40, 40),
+	AnchorPoint = Vector2.new(0.5, 0.5),
+	Position = UDim2.new(0, 22, 0.5, 0),
+	Size = UDim2.fromOffset(32, 32),
 	Image = LogoAssets.Base,
 })
 Instances:Create("ImageLabel", {
@@ -1221,10 +1233,12 @@ Instances:Create("TextLabel", {
 	AnchorPoint = Vector2.new(0.5, 0.5),
 	BackgroundTransparency = 1,
 	Position = UDim2.fromScale(0.5, 0.5),
-	Size = UDim2.fromOffset(180, 24),
-	Text = "solixhub.com",
+	Size = UDim2.new(1, -112, 0, 28),
+	TextXAlignment = Enum.TextXAlignment.Center,
+	RichText = true,
+	Text = 'solix<font color="#' .. Theme.Accent:ToHex() .. '">hub</font>.com',
 	TextColor3 = Theme.TextColor,
-	TextSize = 16,
+	TextSize = 20,
 })
 
 local CloseButton = Instances:Create("TextButton", {
@@ -1232,17 +1246,18 @@ local CloseButton = Instances:Create("TextButton", {
 	AnchorPoint = Vector2.new(1, 0.5),
 	BackgroundTransparency = 1,
 	Position = UDim2.fromScale(1, 0.5),
-	Size = UDim2.fromOffset(IsMobile and 44 or 24, IsMobile and 44 or 24),
-	Text = "X",
+	Size = UDim2.fromOffset(44, 44),
+	Text = "×",
 	TextColor3 = Theme.Unselected,
-	TextSize = 20,
+	TextSize = 24,
 })
 
 local KeyBox = Instances:Create("Frame", {
 	Parent = Main.Instance,
+	ClipsDescendants = true,
 	BackgroundColor3 = Theme.OtherBackgrounds,
-	Position = UDim2.fromOffset(Padding, 70),
-	Size = UDim2.new(1, -Padding * 2, 0, ButtonHeight),
+	Position = UDim2.fromOffset(Padding, InputY),
+	Size = UDim2.new(1, -Padding * 2, 0, InputHeight),
 })
 Box(KeyBox)
 
@@ -1252,17 +1267,22 @@ local KeyInput = Instances:Create("TextBox", {
 	Position = UDim2.fromOffset(10, 0),
 	Size = UDim2.new(1, -20, 1, 0),
 	Text = "",
-	TextSize = IsMobile and 16 or 15,
+	TextSize = 16,
 	PlaceholderText = "Paste your key here",
 	PlaceholderColor3 = Theme.Placeholder,
-	TextXAlignment = Enum.TextXAlignment.Left,
+	ClipsDescendants = true,
+	MultiLine = false,
+	TextTruncate = Enum.TextTruncate.AtEnd,
+	TextWrapped = false,
+	TextXAlignment = Enum.TextXAlignment.Center,
+	TextYAlignment = Enum.TextYAlignment.Center,
 	ClearTextOnFocus = false,
 })
 
 local ContinueButton = Instances:Create("TextButton", {
 	Parent = Main.Instance,
-	Position = UDim2.fromOffset(Padding, 116),
-	Size = UDim2.new(1, -Padding * 2, 0, ButtonHeight),
+	Position = UDim2.fromOffset(Padding, FirstButtonY),
+	Size = UDim2.fromOffset(HalfWidth, ButtonHeight),
 	BackgroundColor3 = Theme.Accent,
 	Text = "Continue",
 	TextSize = 15,
@@ -1271,7 +1291,7 @@ Box(ContinueButton, false, true)
 
 local GetKeyButton = Instances:Create("TextButton", {
 	Parent = Main.Instance,
-	Position = UDim2.fromOffset(Padding, 162),
+	Position = UDim2.fromOffset(Padding + HalfWidth + Gap, FirstButtonY),
 	Size = UDim2.fromOffset(HalfWidth, ButtonHeight),
 	BackgroundColor3 = Theme.OtherBackgrounds,
 	Text = "Get Key",
@@ -1281,7 +1301,7 @@ Box(GetKeyButton)
 
 local SkipKeyButton = Instances:Create("TextButton", {
 	Parent = Main.Instance,
-	Position = UDim2.fromOffset(Padding + HalfWidth + 10, 162),
+	Position = UDim2.fromOffset(Padding + HalfWidth + Gap, SecondButtonY),
 	Size = UDim2.fromOffset(HalfWidth, ButtonHeight),
 	BackgroundColor3 = Theme.OtherBackgrounds,
 	Text = "Skip Key",
@@ -1291,8 +1311,8 @@ Box(SkipKeyButton)
 
 local JoinDiscordButton = Instances:Create("TextButton", {
 	Parent = Main.Instance,
-	Position = UDim2.fromOffset(Padding, 208),
-	Size = UDim2.new(1, -Padding * 2, 0, ButtonHeight),
+	Position = UDim2.fromOffset(Padding, SecondButtonY),
+	Size = UDim2.fromOffset(HalfWidth, ButtonHeight),
 	BackgroundColor3 = Theme.OtherBackgrounds,
 	Text = "Join Discord",
 	TextSize = 15,
@@ -1444,6 +1464,7 @@ local DragOutline = Instances:Create("Frame", {
 	Visible = false,
 	ZIndex = 99999,
 })
+Instances:Create("UIScale", {Parent = DragOutline.Instance, Scale = Scale.Instance.Scale})
 Instances:Create("UICorner", {Parent = DragOutline.Instance, CornerRadius = UDim.new(0, 6)})
 Instances:Create("UIStroke", {Parent = DragOutline.Instance, Color = Theme.Accent, Thickness = 1})
 
