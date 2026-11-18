@@ -165,6 +165,7 @@ local GameList = {
 	["10767386157"] = { Id = "22068f1924bfbd48", Keyless = false }, -- Chop A Forest
 	["10767634248"] = { Id = "41dd482b4e67a744", Keyless = false }, -- Firefighting Sim
 	["648454481"] = { Id = "a873ec9f40a25c5c", Keyless = false }, -- Grand Piece Online
+	["1451439645"] = { Id = "0175e216221387f8", Keyless = false }, -- King Legacy
 	["66654135"] = { Id = "e45bba6c0dc08fad", Keyless = false }, -- Murder Mystery 2
 	["10035204815"] = { Id = "85a577643f806078", Keyless = false }, -- Ride A Pet
 	["6035872082"] = { Id = "9d318b57c43ebd9d", Keyless = false }, -- Rivals
