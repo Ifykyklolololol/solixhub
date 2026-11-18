@@ -173,6 +173,7 @@ local GameList = {
 	["5595353122"] = { Id = "d7305ba1bbb3bd7b", Keyless = false }, -- Slayers 2
 	["10563114921"] = { Id = "d3b0a2eaf4a1522a", Keyless = false }, -- Steal An Egg
 	["7174773198"] = { Id = "1a0dbcb0cbb0b955", Keyless = false }, -- Vox Seas
+    ["1451439645"] = { Id = "0175e216221387f8", Keyless = false }, -- King legacy
 
 	-- Universal Games
 	["9534705677"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Arcade
