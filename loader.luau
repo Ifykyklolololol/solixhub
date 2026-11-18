@@ -174,6 +174,7 @@ local GameList = {
 	["5595353122"] = { Id = "d7305ba1bbb3bd7b", Keyless = false }, -- Slayers 2
 	["10563114921"] = { Id = "d3b0a2eaf4a1522a", Keyless = false }, -- Steal An Egg
 	["1946714362"] = { Id = "2f231342cca70549", Keyless = false }, -- Bloodlines
+    ["7174773198"] = { Id = "1a0dbcb0cbb0b955", Keyless = false }, -- Vox Seas
 
 	-- Universal Games
 	["504035427"] = { Id = "52eedbdc867c3387", Keyless = false }, -- Zombie Attack
